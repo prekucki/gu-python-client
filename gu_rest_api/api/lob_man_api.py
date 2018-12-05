@@ -41,7 +41,7 @@ class LobManApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -62,7 +62,7 @@ class LobManApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -111,7 +111,7 @@ class LobManApi(object):
         auth_settings = ['serviceToken', 'systemName']  # noqa: E501
 
         return self.api_client.call_api(
-            '/sessions/{sessionId}/blob', 'POST',
+            '/sessions/{sessionId}/blobs', 'POST',
             path_params,
             query_params,
             header_params,
@@ -127,7 +127,7 @@ class LobManApi(object):
             collection_formats=collection_formats)
 
     def download_blob(self, session_id, blob_id, **kwargs):  # noqa: E501
-        """download_blob  # noqa: E501
+        """Downloads binary content from the hub  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -135,7 +135,7 @@ class LobManApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param str blob_id: Blob identifier (required)
         :return: file
                  If the method is called asynchronously,
@@ -149,7 +149,7 @@ class LobManApi(object):
             return data
 
     def download_blob_with_http_info(self, session_id, blob_id, **kwargs):  # noqa: E501
-        """download_blob  # noqa: E501
+        """Downloads binary content from the hub  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -157,7 +157,7 @@ class LobManApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param str blob_id: Blob identifier (required)
         :return: file
                  If the method is called asynchronously,
@@ -207,13 +207,13 @@ class LobManApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['*/*'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['serviceToken', 'systemName']  # noqa: E501
 
         return self.api_client.call_api(
-            '/sessions/{sessionId}/blob/{blobId}', 'GET',
+            '/sessions/{sessionId}/blobs/{blobId}', 'GET',
             path_params,
             query_params,
             header_params,
@@ -237,7 +237,7 @@ class LobManApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :return: list[BlobInfo]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -258,7 +258,7 @@ class LobManApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :return: list[BlobInfo]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -307,7 +307,7 @@ class LobManApi(object):
         auth_settings = ['serviceToken', 'systemName']  # noqa: E501
 
         return self.api_client.call_api(
-            '/sessions/{sessionId}/blob', 'GET',
+            '/sessions/{sessionId}/blobs', 'GET',
             path_params,
             query_params,
             header_params,
@@ -323,7 +323,7 @@ class LobManApi(object):
             collection_formats=collection_formats)
 
     def upload_blob(self, session_id, blob_id, **kwargs):  # noqa: E501
-        """upload_blob  # noqa: E501
+        """Uploads a binary content to the hub.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -331,7 +331,7 @@ class LobManApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param str blob_id: Blob identifier (required)
         :param file body:
         :return: None
@@ -346,7 +346,7 @@ class LobManApi(object):
             return data
 
     def upload_blob_with_http_info(self, session_id, blob_id, **kwargs):  # noqa: E501
-        """upload_blob  # noqa: E501
+        """Uploads a binary content to the hub.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -354,7 +354,7 @@ class LobManApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param str blob_id: Blob identifier (required)
         :param file body:
         :return: None
@@ -413,7 +413,7 @@ class LobManApi(object):
         auth_settings = ['serviceToken', 'systemName']  # noqa: E501
 
         return self.api_client.call_api(
-            '/sessions/{sessionId}/blob/{blobId}', 'PUT',
+            '/sessions/{sessionId}/blobs/{blobId}', 'PUT',
             path_params,
             query_params,
             header_params,

@@ -1,17 +1,17 @@
-# gu_rest_api.PeerInfoApi
+# gu_rest_api.DefaultApi
 
 All URIs are relative to *http://127.0.0.1:61622*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_peer_details**](PeerInfoApi.md#get_peer_details) | **GET** /peers/{nodeId} | Returns detailed peer info
-[**list_peers**](PeerInfoApi.md#list_peers) | **GET** /peers | Returns a list hub peers.
+[**peers_node_id_deployments_get**](DefaultApi.md#peers_node_id_deployments_get) | **GET** /peers/{nodeId}/deployments | 
+[**peers_node_id_deployments_post**](DefaultApi.md#peers_node_id_deployments_post) | **POST** /peers/{nodeId}/deployments | 
 
 
-# **get_peer_details**
-> PeerInfo get_peer_details(node_id)
+# **peers_node_id_deployments_get**
+> list[PeerSessionSpec] peers_node_id_deployments_get(node_id, deployment_id)
 
-Returns detailed peer info
+
 
 ### Example
 
@@ -30,15 +30,15 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = gu_rest_api.PeerInfoApi(gu_rest_api.ApiClient(configuration))
+api_instance = gu_rest_api.DefaultApi(gu_rest_api.ApiClient(configuration))
 node_id = 'node_id_example' # str | GU Network node identifier
+deployment_id = 'deployment_id_example' # str | 
 
 try:
-    # Returns detailed peer info
-    api_response = api_instance.get_peer_details(node_id)
+    api_response = api_instance.peers_node_id_deployments_get(node_id, deployment_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PeerInfoApi->get_peer_details: %s\n" % e)
+    print("Exception when calling DefaultApi->peers_node_id_deployments_get: %s\n" % e)
 ```
 
 
@@ -57,15 +57,15 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = gu_rest_api.PeerInfoApi(gu_rest_api.ApiClient(configuration))
+api_instance = gu_rest_api.DefaultApi(gu_rest_api.ApiClient(configuration))
 node_id = 'node_id_example' # str | GU Network node identifier
+deployment_id = 'deployment_id_example' # str | 
 
 try:
-    # Returns detailed peer info
-    api_response = api_instance.get_peer_details(node_id)
+    api_response = api_instance.peers_node_id_deployments_get(node_id, deployment_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PeerInfoApi->get_peer_details: %s\n" % e)
+    print("Exception when calling DefaultApi->peers_node_id_deployments_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -73,10 +73,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **node_id** | **str**| GU Network node identifier | 
+ **deployment_id** | **str**|  | 
 
 ### Return type
 
-[**PeerInfo**](PeerInfo.md)
+[**list[PeerSessionSpec]**](PeerSessionSpec.md)
 
 ### Authorization
 
@@ -89,10 +90,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_peers**
-> list[PeerInfo] list_peers(offset=offset, limit=limit)
+# **peers_node_id_deployments_post**
+> str peers_node_id_deployments_post(node_id, deployment_id, peer_session_spec)
 
-Returns a list hub peers.
+
 
 ### Example
 
@@ -111,16 +112,16 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = gu_rest_api.PeerInfoApi(gu_rest_api.ApiClient(configuration))
-offset = 0 # int |  (optional) (default to 0)
-limit = 50 # int |  (optional) (default to 50)
+api_instance = gu_rest_api.DefaultApi(gu_rest_api.ApiClient(configuration))
+node_id = 'node_id_example' # str | GU Network node identifier
+deployment_id = 'deployment_id_example' # str | 
+peer_session_spec = gu_rest_api.PeerSessionSpec() # PeerSessionSpec | 
 
 try:
-    # Returns a list hub peers.
-    api_response = api_instance.list_peers(offset=offset, limit=limit)
+    api_response = api_instance.peers_node_id_deployments_post(node_id, deployment_id, peer_session_spec)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PeerInfoApi->list_peers: %s\n" % e)
+    print("Exception when calling DefaultApi->peers_node_id_deployments_post: %s\n" % e)
 ```
 
 
@@ -139,28 +140,29 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = gu_rest_api.PeerInfoApi(gu_rest_api.ApiClient(configuration))
-offset = 0 # int |  (optional) (default to 0)
-limit = 50 # int |  (optional) (default to 50)
+api_instance = gu_rest_api.DefaultApi(gu_rest_api.ApiClient(configuration))
+node_id = 'node_id_example' # str | GU Network node identifier
+deployment_id = 'deployment_id_example' # str | 
+peer_session_spec = gu_rest_api.PeerSessionSpec() # PeerSessionSpec | 
 
 try:
-    # Returns a list hub peers.
-    api_response = api_instance.list_peers(offset=offset, limit=limit)
+    api_response = api_instance.peers_node_id_deployments_post(node_id, deployment_id, peer_session_spec)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PeerInfoApi->list_peers: %s\n" % e)
+    print("Exception when calling DefaultApi->peers_node_id_deployments_post: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **offset** | **int**|  | [optional] [default to 0]
- **limit** | **int**|  | [optional] [default to 50]
+ **node_id** | **str**| GU Network node identifier | 
+ **deployment_id** | **str**|  | 
+ **peer_session_spec** | [**PeerSessionSpec**](PeerSessionSpec.md)|  | 
 
 ### Return type
 
-[**list[PeerInfo]**](PeerInfo.md)
+**str**
 
 ### Authorization
 
@@ -169,7 +171,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

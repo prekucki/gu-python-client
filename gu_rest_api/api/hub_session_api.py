@@ -41,7 +41,7 @@ class HubSessionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param list[str] request_body: (required)
         :return: list[str]
                  If the method is called asynchronously,
@@ -63,7 +63,7 @@ class HubSessionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param list[str] request_body: (required)
         :return: list[str]
                  If the method is called asynchronously,
@@ -119,7 +119,7 @@ class HubSessionApi(object):
         auth_settings = ['serviceToken', 'systemName']  # noqa: E501
 
         return self.api_client.call_api(
-            '/sessions/{sessionId}/peer', 'POST',
+            '/sessions/{sessionId}/peers', 'POST',
             path_params,
             query_params,
             header_params,
@@ -135,8 +135,9 @@ class HubSessionApi(object):
             collection_formats=collection_formats)
 
     def create_hub_session(self, **kwargs):  # noqa: E501
-        """create_hub_session  # noqa: E501
+        """Creates new hub session.  # noqa: E501
 
+        Allowed fileds:  * name        - human readable session name * expires     - session expiration timestamp * allocation  - resource allocation mode.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_hub_session(async_req=True)
@@ -156,8 +157,9 @@ class HubSessionApi(object):
             return data
 
     def create_hub_session_with_http_info(self, **kwargs):  # noqa: E501
-        """create_hub_session  # noqa: E501
+        """Creates new hub session.  # noqa: E501
 
+        Allowed fileds:  * name        - human readable session name * expires     - session expiration timestamp * allocation  - resource allocation mode.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.create_hub_session_with_http_info(async_req=True)
@@ -203,7 +205,11 @@ class HubSessionApi(object):
             body_params = local_var_params['hub_session']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['*/*'])  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['serviceToken', 'systemName']  # noqa: E501
@@ -233,7 +239,7 @@ class HubSessionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :return: HubSession
                  If the method is called asynchronously,
                  returns the request thread.
@@ -254,7 +260,7 @@ class HubSessionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :return: HubSession
                  If the method is called asynchronously,
                  returns the request thread.
@@ -327,7 +333,7 @@ class HubSessionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :return: ConfigStash
                  If the method is called asynchronously,
                  returns the request thread.
@@ -348,7 +354,7 @@ class HubSessionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :return: ConfigStash
                  If the method is called asynchronously,
                  returns the request thread.
@@ -515,7 +521,7 @@ class HubSessionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -536,7 +542,7 @@ class HubSessionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -605,7 +611,7 @@ class HubSessionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param HubSessionCommand hub_session_command:
         :return: None
                  If the method is called asynchronously,
@@ -627,7 +633,7 @@ class HubSessionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param HubSessionCommand hub_session_command:
         :return: None
                  If the method is called asynchronously,
@@ -694,16 +700,16 @@ class HubSessionApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def set_hub_session_configuration(self, session_id, request_body, **kwargs):  # noqa: E501
+    def set_hub_session_config(self, session_id, request_body, **kwargs):  # noqa: E501
         """Sets configuration stash  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_hub_session_configuration(session_id, request_body, async_req=True)
+        >>> thread = api.set_hub_session_config(session_id, request_body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param dict(str, object) request_body: New config stash value (required)
         :return: dict(str, object)
                  If the method is called asynchronously,
@@ -711,21 +717,21 @@ class HubSessionApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.set_hub_session_configuration_with_http_info(session_id, request_body, **kwargs)  # noqa: E501
+            return self.set_hub_session_config_with_http_info(session_id, request_body, **kwargs)  # noqa: E501
         else:
-            (data) = self.set_hub_session_configuration_with_http_info(session_id, request_body, **kwargs)  # noqa: E501
+            (data) = self.set_hub_session_config_with_http_info(session_id, request_body, **kwargs)  # noqa: E501
             return data
 
-    def set_hub_session_configuration_with_http_info(self, session_id, request_body, **kwargs):  # noqa: E501
+    def set_hub_session_config_with_http_info(self, session_id, request_body, **kwargs):  # noqa: E501
         """Sets configuration stash  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_hub_session_configuration_with_http_info(session_id, request_body, async_req=True)
+        >>> thread = api.set_hub_session_config_with_http_info(session_id, request_body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param dict(str, object) request_body: New config stash value (required)
         :return: dict(str, object)
                  If the method is called asynchronously,
@@ -744,18 +750,18 @@ class HubSessionApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method set_hub_session_configuration" % key
+                    " to method set_hub_session_config" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'session_id' is set
         if ('session_id' not in local_var_params or
                 local_var_params['session_id'] is None):
-            raise ValueError("Missing the required parameter `session_id` when calling `set_hub_session_configuration`")  # noqa: E501
+            raise ValueError("Missing the required parameter `session_id` when calling `set_hub_session_config`")  # noqa: E501
         # verify the required parameter 'request_body' is set
         if ('request_body' not in local_var_params or
                 local_var_params['request_body'] is None):
-            raise ValueError("Missing the required parameter `request_body` when calling `set_hub_session_configuration`")  # noqa: E501
+            raise ValueError("Missing the required parameter `request_body` when calling `set_hub_session_config`")  # noqa: E501
 
         collection_formats = {}
 

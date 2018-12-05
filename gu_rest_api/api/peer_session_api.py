@@ -33,7 +33,7 @@ class PeerSessionApi(object):
         self.api_client = api_client
 
     def create_peer_session(self, session_id, node_id, peer_session_spec, **kwargs):  # noqa: E501
-        """create_peer_session  # noqa: E501
+        """Creates new deploymnet  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -41,7 +41,7 @@ class PeerSessionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param str node_id: GU Network node identifier (required)
         :param PeerSessionSpec peer_session_spec: (required)
         :return: str
@@ -56,7 +56,7 @@ class PeerSessionApi(object):
             return data
 
     def create_peer_session_with_http_info(self, session_id, node_id, peer_session_spec, **kwargs):  # noqa: E501
-        """create_peer_session  # noqa: E501
+        """Creates new deploymnet  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -64,7 +64,7 @@ class PeerSessionApi(object):
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param str node_id: GU Network node identifier (required)
         :param PeerSessionSpec peer_session_spec: (required)
         :return: str
@@ -129,7 +129,7 @@ class PeerSessionApi(object):
         auth_settings = ['serviceToken', 'systemName']  # noqa: E501
 
         return self.api_client.call_api(
-            '/sessions/{sessionId}/peer/{nodeId}/peer-sessions', 'POST',
+            '/sessions/{sessionId}/peers/{nodeId}/deployments', 'POST',
             path_params,
             query_params,
             header_params,
@@ -144,41 +144,41 @@ class PeerSessionApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_peer_session(self, session_id, node_id, hub_session, **kwargs):  # noqa: E501
+    def delete_peer_session(self, session_id, node_id, deployment_id, **kwargs):  # noqa: E501
         """delete_peer_session  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_peer_session(session_id, node_id, hub_session, async_req=True)
+        >>> thread = api.delete_peer_session(session_id, node_id, deployment_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param str node_id: GU Network node identifier (required)
-        :param str hub_session: (required)
+        :param str deployment_id: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.delete_peer_session_with_http_info(session_id, node_id, hub_session, **kwargs)  # noqa: E501
+            return self.delete_peer_session_with_http_info(session_id, node_id, deployment_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.delete_peer_session_with_http_info(session_id, node_id, hub_session, **kwargs)  # noqa: E501
+            (data) = self.delete_peer_session_with_http_info(session_id, node_id, deployment_id, **kwargs)  # noqa: E501
             return data
 
-    def delete_peer_session_with_http_info(self, session_id, node_id, hub_session, **kwargs):  # noqa: E501
+    def delete_peer_session_with_http_info(self, session_id, node_id, deployment_id, **kwargs):  # noqa: E501
         """delete_peer_session  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_peer_session_with_http_info(session_id, node_id, hub_session, async_req=True)
+        >>> thread = api.delete_peer_session_with_http_info(session_id, node_id, deployment_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param str node_id: GU Network node identifier (required)
-        :param str hub_session: (required)
+        :param str deployment_id: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -186,7 +186,7 @@ class PeerSessionApi(object):
 
         local_var_params = locals()
 
-        all_params = ['session_id', 'node_id', 'hub_session']  # noqa: E501
+        all_params = ['session_id', 'node_id', 'deployment_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -208,10 +208,10 @@ class PeerSessionApi(object):
         if ('node_id' not in local_var_params or
                 local_var_params['node_id'] is None):
             raise ValueError("Missing the required parameter `node_id` when calling `delete_peer_session`")  # noqa: E501
-        # verify the required parameter 'hub_session' is set
-        if ('hub_session' not in local_var_params or
-                local_var_params['hub_session'] is None):
-            raise ValueError("Missing the required parameter `hub_session` when calling `delete_peer_session`")  # noqa: E501
+        # verify the required parameter 'deployment_id' is set
+        if ('deployment_id' not in local_var_params or
+                local_var_params['deployment_id'] is None):
+            raise ValueError("Missing the required parameter `deployment_id` when calling `delete_peer_session`")  # noqa: E501
 
         if 'node_id' in local_var_params and not re.search(r'0x[0-9a-f]{40}', local_var_params['node_id']):  # noqa: E501
             raise ValueError("Invalid value for parameter `node_id` when calling `delete_peer_session`, must conform to the pattern `/0x[0-9a-f]{40}/`")  # noqa: E501
@@ -222,8 +222,8 @@ class PeerSessionApi(object):
             path_params['sessionId'] = local_var_params['session_id']  # noqa: E501
         if 'node_id' in local_var_params:
             path_params['nodeId'] = local_var_params['node_id']  # noqa: E501
-        if 'hub_session' in local_var_params:
-            path_params['hubSession'] = local_var_params['hub_session']  # noqa: E501
+        if 'deployment_id' in local_var_params:
+            path_params['deploymentId'] = local_var_params['deployment_id']  # noqa: E501
 
         query_params = []
 
@@ -237,7 +237,7 @@ class PeerSessionApi(object):
         auth_settings = ['serviceToken', 'systemName']  # noqa: E501
 
         return self.api_client.call_api(
-            '/sessions/{sessionId}/peer/{nodeId}/peer-sessions/{hubSession}', 'DELETE',
+            '/sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId}', 'DELETE',
             path_params,
             query_params,
             header_params,
@@ -252,18 +252,18 @@ class PeerSessionApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_peer_session(self, session_id, node_id, hub_session, command, **kwargs):  # noqa: E501
+    def update_peer_session(self, session_id, node_id, deployment_id, command, **kwargs):  # noqa: E501
         """Sends multiple commands for peer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_peer_session(session_id, node_id, hub_session, command, async_req=True)
+        >>> thread = api.update_peer_session(session_id, node_id, deployment_id, command, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param str node_id: GU Network node identifier (required)
-        :param str hub_session: (required)
+        :param str deployment_id: (required)
         :param list[Command] command: (required)
         :return: None
                  If the method is called asynchronously,
@@ -271,23 +271,23 @@ class PeerSessionApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_peer_session_with_http_info(session_id, node_id, hub_session, command, **kwargs)  # noqa: E501
+            return self.update_peer_session_with_http_info(session_id, node_id, deployment_id, command, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_peer_session_with_http_info(session_id, node_id, hub_session, command, **kwargs)  # noqa: E501
+            (data) = self.update_peer_session_with_http_info(session_id, node_id, deployment_id, command, **kwargs)  # noqa: E501
             return data
 
-    def update_peer_session_with_http_info(self, session_id, node_id, hub_session, command, **kwargs):  # noqa: E501
+    def update_peer_session_with_http_info(self, session_id, node_id, deployment_id, command, **kwargs):  # noqa: E501
         """Sends multiple commands for peer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_peer_session_with_http_info(session_id, node_id, hub_session, command, async_req=True)
+        >>> thread = api.update_peer_session_with_http_info(session_id, node_id, deployment_id, command, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param str session_id: (required)
+        :param int session_id: HUB session id (required)
         :param str node_id: GU Network node identifier (required)
-        :param str hub_session: (required)
+        :param str deployment_id: (required)
         :param list[Command] command: (required)
         :return: None
                  If the method is called asynchronously,
@@ -296,7 +296,7 @@ class PeerSessionApi(object):
 
         local_var_params = locals()
 
-        all_params = ['session_id', 'node_id', 'hub_session', 'command']  # noqa: E501
+        all_params = ['session_id', 'node_id', 'deployment_id', 'command']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -318,10 +318,10 @@ class PeerSessionApi(object):
         if ('node_id' not in local_var_params or
                 local_var_params['node_id'] is None):
             raise ValueError("Missing the required parameter `node_id` when calling `update_peer_session`")  # noqa: E501
-        # verify the required parameter 'hub_session' is set
-        if ('hub_session' not in local_var_params or
-                local_var_params['hub_session'] is None):
-            raise ValueError("Missing the required parameter `hub_session` when calling `update_peer_session`")  # noqa: E501
+        # verify the required parameter 'deployment_id' is set
+        if ('deployment_id' not in local_var_params or
+                local_var_params['deployment_id'] is None):
+            raise ValueError("Missing the required parameter `deployment_id` when calling `update_peer_session`")  # noqa: E501
         # verify the required parameter 'command' is set
         if ('command' not in local_var_params or
                 local_var_params['command'] is None):
@@ -336,8 +336,8 @@ class PeerSessionApi(object):
             path_params['sessionId'] = local_var_params['session_id']  # noqa: E501
         if 'node_id' in local_var_params:
             path_params['nodeId'] = local_var_params['node_id']  # noqa: E501
-        if 'hub_session' in local_var_params:
-            path_params['hubSession'] = local_var_params['hub_session']  # noqa: E501
+        if 'deployment_id' in local_var_params:
+            path_params['deploymentId'] = local_var_params['deployment_id']  # noqa: E501
 
         query_params = []
 
@@ -357,7 +357,7 @@ class PeerSessionApi(object):
         auth_settings = ['serviceToken', 'systemName']  # noqa: E501
 
         return self.api_client.call_api(
-            '/sessions/{sessionId}/peer/{nodeId}/peer-sessions/{hubSession}', 'PATCH',
+            '/sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId}', 'PATCH',
             path_params,
             query_params,
             header_params,

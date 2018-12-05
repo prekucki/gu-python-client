@@ -4,14 +4,14 @@ All URIs are relative to *http://127.0.0.1:61622*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_hub_session_peers**](HubSessionApi.md#add_hub_session_peers) | **POST** /sessions/{sessionId}/peer | Manually adds peers to hub session
-[**create_hub_session**](HubSessionApi.md#create_hub_session) | **POST** /sessions | 
+[**add_hub_session_peers**](HubSessionApi.md#add_hub_session_peers) | **POST** /sessions/{sessionId}/peers | Manually adds peers to hub session
+[**create_hub_session**](HubSessionApi.md#create_hub_session) | **POST** /sessions | Creates new hub session.
 [**get_hub_session**](HubSessionApi.md#get_hub_session) | **GET** /sessions/{sessionId} | Gets hub session info
 [**get_hub_session_config**](HubSessionApi.md#get_hub_session_config) | **GET** /sessions/{sessionId}/config | Gets configuration from stash
 [**list_hub_sessions**](HubSessionApi.md#list_hub_sessions) | **GET** /sessions | Lists current hub sessions.
 [**sessions_session_id_delete**](HubSessionApi.md#sessions_session_id_delete) | **DELETE** /sessions/{sessionId} | 
 [**sessions_session_id_patch**](HubSessionApi.md#sessions_session_id_patch) | **PATCH** /sessions/{sessionId} | Hub session update
-[**set_hub_session_configuration**](HubSessionApi.md#set_hub_session_configuration) | **PUT** /sessions/{sessionId}/config | Sets configuration stash
+[**set_hub_session_config**](HubSessionApi.md#set_hub_session_config) | **PUT** /sessions/{sessionId}/config | Sets configuration stash
 
 
 # **add_hub_session_peers**
@@ -37,7 +37,7 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.HubSessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 request_body = NULL # list[str] | 
 
 try:
@@ -65,7 +65,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.HubSessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 request_body = NULL # list[str] | 
 
 try:
@@ -80,7 +80,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **session_id** | **str**|  | 
+ **session_id** | **int**| HUB session id | 
  **request_body** | [**list[str]**](list.md)|  | 
 
 ### Return type
@@ -101,7 +101,9 @@ Name | Type | Description  | Notes
 # **create_hub_session**
 > str create_hub_session(hub_session=hub_session)
 
+Creates new hub session.
 
+Allowed fileds:  * name        - human readable session name * expires     - session expiration timestamp * allocation  - resource allocation mode.
 
 ### Example
 
@@ -124,6 +126,7 @@ api_instance = gu_rest_api.HubSessionApi(gu_rest_api.ApiClient(configuration))
 hub_session = gu_rest_api.HubSession() # HubSession |  (optional)
 
 try:
+    # Creates new hub session.
     api_response = api_instance.create_hub_session(hub_session=hub_session)
     pprint(api_response)
 except ApiException as e:
@@ -150,6 +153,7 @@ api_instance = gu_rest_api.HubSessionApi(gu_rest_api.ApiClient(configuration))
 hub_session = gu_rest_api.HubSession() # HubSession |  (optional)
 
 try:
+    # Creates new hub session.
     api_response = api_instance.create_hub_session(hub_session=hub_session)
     pprint(api_response)
 except ApiException as e:
@@ -172,8 +176,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -200,7 +204,7 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.HubSessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 
 try:
     # Gets hub session info
@@ -227,7 +231,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.HubSessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 
 try:
     # Gets hub session info
@@ -241,7 +245,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **session_id** | **str**|  | 
+ **session_id** | **int**| HUB session id | 
 
 ### Return type
 
@@ -281,7 +285,7 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.HubSessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 
 try:
     # Gets configuration from stash
@@ -308,7 +312,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.HubSessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 
 try:
     # Gets configuration from stash
@@ -322,7 +326,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **session_id** | **str**|  | 
+ **session_id** | **int**| HUB session id | 
 
 ### Return type
 
@@ -446,7 +450,7 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.HubSessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 
 try:
     api_instance.sessions_session_id_delete(session_id)
@@ -471,7 +475,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.HubSessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 
 try:
     api_instance.sessions_session_id_delete(session_id)
@@ -483,7 +487,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **session_id** | **str**|  | 
+ **session_id** | **int**| HUB session id | 
 
 ### Return type
 
@@ -523,7 +527,7 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.HubSessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 hub_session_command = gu_rest_api.HubSessionCommand() # HubSessionCommand |  (optional)
 
 try:
@@ -550,7 +554,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.HubSessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 hub_session_command = gu_rest_api.HubSessionCommand() # HubSessionCommand |  (optional)
 
 try:
@@ -564,7 +568,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **session_id** | **str**|  | 
+ **session_id** | **int**| HUB session id | 
  **hub_session_command** | [**HubSessionCommand**](HubSessionCommand.md)|  | [optional] 
 
 ### Return type
@@ -582,8 +586,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **set_hub_session_configuration**
-> dict(str, object) set_hub_session_configuration(session_id, request_body)
+# **set_hub_session_config**
+> dict(str, object) set_hub_session_config(session_id, request_body)
 
 Sets configuration stash
 
@@ -605,15 +609,15 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.HubSessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 request_body = NULL # dict(str, object) | New config stash value
 
 try:
     # Sets configuration stash
-    api_response = api_instance.set_hub_session_configuration(session_id, request_body)
+    api_response = api_instance.set_hub_session_config(session_id, request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling HubSessionApi->set_hub_session_configuration: %s\n" % e)
+    print("Exception when calling HubSessionApi->set_hub_session_config: %s\n" % e)
 ```
 
 
@@ -633,22 +637,22 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.HubSessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 request_body = NULL # dict(str, object) | New config stash value
 
 try:
     # Sets configuration stash
-    api_response = api_instance.set_hub_session_configuration(session_id, request_body)
+    api_response = api_instance.set_hub_session_config(session_id, request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling HubSessionApi->set_hub_session_configuration: %s\n" % e)
+    print("Exception when calling HubSessionApi->set_hub_session_config: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **session_id** | **str**|  | 
+ **session_id** | **int**| HUB session id | 
  **request_body** | [**dict(str, object)**](object.md)| New config stash value | 
 
 ### Return type

@@ -4,10 +4,10 @@ All URIs are relative to *http://127.0.0.1:61622*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_blob**](LobManApi.md#create_blob) | **POST** /sessions/{sessionId}/blob | Creates new lob
-[**download_blob**](LobManApi.md#download_blob) | **GET** /sessions/{sessionId}/blob/{blobId} | 
-[**list_hub_session_blobs**](LobManApi.md#list_hub_session_blobs) | **GET** /sessions/{sessionId}/blob | Lists currently allocated lobs
-[**upload_blob**](LobManApi.md#upload_blob) | **PUT** /sessions/{sessionId}/blob/{blobId} | 
+[**create_blob**](LobManApi.md#create_blob) | **POST** /sessions/{sessionId}/blobs | Creates new lob
+[**download_blob**](LobManApi.md#download_blob) | **GET** /sessions/{sessionId}/blobs/{blobId} | Downloads binary content from the hub
+[**list_hub_session_blobs**](LobManApi.md#list_hub_session_blobs) | **GET** /sessions/{sessionId}/blobs | Lists currently allocated lobs
+[**upload_blob**](LobManApi.md#upload_blob) | **PUT** /sessions/{sessionId}/blobs/{blobId} | Uploads a binary content to the hub.
 
 
 # **create_blob**
@@ -33,7 +33,7 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.LobManApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 
 try:
     # Creates new lob
@@ -60,7 +60,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.LobManApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 
 try:
     # Creates new lob
@@ -74,7 +74,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **session_id** | **str**|  | 
+ **session_id** | **int**| HUB session id | 
 
 ### Return type
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 # **download_blob**
 > file download_blob(session_id, blob_id)
 
-
+Downloads binary content from the hub
 
 ### Example
 
@@ -114,10 +114,11 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.LobManApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 blob_id = 'blob_id_example' # str | Blob identifier
 
 try:
+    # Downloads binary content from the hub
     api_response = api_instance.download_blob(session_id, blob_id)
     pprint(api_response)
 except ApiException as e:
@@ -141,10 +142,11 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.LobManApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 blob_id = 'blob_id_example' # str | Blob identifier
 
 try:
+    # Downloads binary content from the hub
     api_response = api_instance.download_blob(session_id, blob_id)
     pprint(api_response)
 except ApiException as e:
@@ -155,7 +157,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **session_id** | **str**|  | 
+ **session_id** | **int**| HUB session id | 
  **blob_id** | **str**| Blob identifier | 
 
 ### Return type
@@ -169,7 +171,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: */*
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -196,7 +198,7 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.LobManApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 
 try:
     # Lists currently allocated lobs
@@ -223,7 +225,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.LobManApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 
 try:
     # Lists currently allocated lobs
@@ -237,7 +239,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **session_id** | **str**|  | 
+ **session_id** | **int**| HUB session id | 
 
 ### Return type
 
@@ -257,7 +259,7 @@ Name | Type | Description  | Notes
 # **upload_blob**
 > upload_blob(session_id, blob_id, body=body)
 
-
+Uploads a binary content to the hub.
 
 ### Example
 
@@ -277,11 +279,12 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.LobManApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 blob_id = 'blob_id_example' # str | Blob identifier
 body = '/path/to/file' # file |  (optional)
 
 try:
+    # Uploads a binary content to the hub.
     api_instance.upload_blob(session_id, blob_id, body=body)
 except ApiException as e:
     print("Exception when calling LobManApi->upload_blob: %s\n" % e)
@@ -304,11 +307,12 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.LobManApi(gu_rest_api.ApiClient(configuration))
-session_id = 'session_id_example' # str | 
+session_id = 56 # int | HUB session id
 blob_id = 'blob_id_example' # str | Blob identifier
 body = '/path/to/file' # file |  (optional)
 
 try:
+    # Uploads a binary content to the hub.
     api_instance.upload_blob(session_id, blob_id, body=body)
 except ApiException as e:
     print("Exception when calling LobManApi->upload_blob: %s\n" % e)
@@ -318,7 +322,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **session_id** | **str**|  | 
+ **session_id** | **int**| HUB session id | 
  **blob_id** | **str**| Blob identifier | 
  **body** | **file**|  | [optional] 
 
