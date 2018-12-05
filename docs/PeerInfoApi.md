@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_peer_deployments**
-> list[PeerSessionSpec] list_peer_deployments(node_id)
+> list[DeploymentInfo] list_peer_deployments(node_id)
 
 
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[PeerSessionSpec]**](PeerSessionSpec.md)
+[**list[DeploymentInfo]**](DeploymentInfo.md)
 
 ### Authorization
 
