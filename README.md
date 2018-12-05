@@ -63,15 +63,16 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = gu_rest_api.DefaultApi(gu_rest_api.ApiClient(configuration))
-node_id = 'node_id_example' # str | GU Network node identifier
-deployment_id = 'deployment_id_example' # str | 
+api_instance = gu_rest_api.HubSessionApi(gu_rest_api.ApiClient(configuration))
+session_id = 56 # int | HUB session id
+request_body = NULL # list[str] | 
 
 try:
-    api_response = api_instance.peers_node_id_deployments_get(node_id, deployment_id)
+    # Manually adds peers to hub session
+    api_response = api_instance.add_hub_session_peers(session_id, request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->peers_node_id_deployments_get: %s\n" % e)
+    print("Exception when calling HubSessionApi->add_hub_session_peers: %s\n" % e)
 
 ```
 
@@ -81,8 +82,6 @@ All URIs are relative to *http://127.0.0.1:61622*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**peers_node_id_deployments_get**](docs/DefaultApi.md#peers_node_id_deployments_get) | **GET** /peers/{nodeId}/deployments | 
-*DefaultApi* | [**peers_node_id_deployments_post**](docs/DefaultApi.md#peers_node_id_deployments_post) | **POST** /peers/{nodeId}/deployments | 
 *HubSessionApi* | [**add_hub_session_peers**](docs/HubSessionApi.md#add_hub_session_peers) | **POST** /sessions/{sessionId}/peers | Manually adds peers to hub session
 *HubSessionApi* | [**create_hub_session**](docs/HubSessionApi.md#create_hub_session) | **POST** /sessions | Creates new hub session.
 *HubSessionApi* | [**get_hub_session**](docs/HubSessionApi.md#get_hub_session) | **GET** /sessions/{sessionId} | Gets hub session info
@@ -95,7 +94,9 @@ Class | Method | HTTP request | Description
 *LobManApi* | [**download_blob**](docs/LobManApi.md#download_blob) | **GET** /sessions/{sessionId}/blobs/{blobId} | Downloads binary content from the hub
 *LobManApi* | [**list_hub_session_blobs**](docs/LobManApi.md#list_hub_session_blobs) | **GET** /sessions/{sessionId}/blobs | Lists currently allocated lobs
 *LobManApi* | [**upload_blob**](docs/LobManApi.md#upload_blob) | **PUT** /sessions/{sessionId}/blobs/{blobId} | Uploads a binary content to the hub.
+*PeerInfoApi* | [**create_deployment_on_peer**](docs/PeerInfoApi.md#create_deployment_on_peer) | **POST** /peers/{nodeId}/deployments | 
 *PeerInfoApi* | [**get_peer_details**](docs/PeerInfoApi.md#get_peer_details) | **GET** /peers/{nodeId} | Returns detailed peer info
+*PeerInfoApi* | [**list_peer_deployments**](docs/PeerInfoApi.md#list_peer_deployments) | **GET** /peers/{nodeId}/deployments | 
 *PeerInfoApi* | [**list_peers**](docs/PeerInfoApi.md#list_peers) | **GET** /peers | Returns a list hub peers.
 *PeerSessionApi* | [**create_peer_session**](docs/PeerSessionApi.md#create_peer_session) | **POST** /sessions/{sessionId}/peers/{nodeId}/deployments | Creates new deploymnet
 *PeerSessionApi* | [**delete_peer_session**](docs/PeerSessionApi.md#delete_peer_session) | **DELETE** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | 
