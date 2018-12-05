@@ -32,17 +32,16 @@ class PeerInfoApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_deployment_on_peer(self, node_id, deployment_id, peer_session_spec, **kwargs):  # noqa: E501
+    def create_deployment_on_peer(self, node_id, peer_session_spec, **kwargs):  # noqa: E501
         """create_deployment_on_peer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_deployment_on_peer(node_id, deployment_id, peer_session_spec, async_req=True)
+        >>> thread = api.create_deployment_on_peer(node_id, peer_session_spec, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str node_id: GU Network node identifier (required)
-        :param str deployment_id: (required)
         :param PeerSessionSpec peer_session_spec: (required)
         :return: str
                  If the method is called asynchronously,
@@ -50,22 +49,21 @@ class PeerInfoApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_deployment_on_peer_with_http_info(node_id, deployment_id, peer_session_spec, **kwargs)  # noqa: E501
+            return self.create_deployment_on_peer_with_http_info(node_id, peer_session_spec, **kwargs)  # noqa: E501
         else:
-            (data) = self.create_deployment_on_peer_with_http_info(node_id, deployment_id, peer_session_spec, **kwargs)  # noqa: E501
+            (data) = self.create_deployment_on_peer_with_http_info(node_id, peer_session_spec, **kwargs)  # noqa: E501
             return data
 
-    def create_deployment_on_peer_with_http_info(self, node_id, deployment_id, peer_session_spec, **kwargs):  # noqa: E501
+    def create_deployment_on_peer_with_http_info(self, node_id, peer_session_spec, **kwargs):  # noqa: E501
         """create_deployment_on_peer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_deployment_on_peer_with_http_info(node_id, deployment_id, peer_session_spec, async_req=True)
+        >>> thread = api.create_deployment_on_peer_with_http_info(node_id, peer_session_spec, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str node_id: GU Network node identifier (required)
-        :param str deployment_id: (required)
         :param PeerSessionSpec peer_session_spec: (required)
         :return: str
                  If the method is called asynchronously,
@@ -74,7 +72,7 @@ class PeerInfoApi(object):
 
         local_var_params = locals()
 
-        all_params = ['node_id', 'deployment_id', 'peer_session_spec']  # noqa: E501
+        all_params = ['node_id', 'peer_session_spec']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -92,10 +90,6 @@ class PeerInfoApi(object):
         if ('node_id' not in local_var_params or
                 local_var_params['node_id'] is None):
             raise ValueError("Missing the required parameter `node_id` when calling `create_deployment_on_peer`")  # noqa: E501
-        # verify the required parameter 'deployment_id' is set
-        if ('deployment_id' not in local_var_params or
-                local_var_params['deployment_id'] is None):
-            raise ValueError("Missing the required parameter `deployment_id` when calling `create_deployment_on_peer`")  # noqa: E501
         # verify the required parameter 'peer_session_spec' is set
         if ('peer_session_spec' not in local_var_params or
                 local_var_params['peer_session_spec'] is None):
@@ -108,8 +102,6 @@ class PeerInfoApi(object):
         path_params = {}
         if 'node_id' in local_var_params:
             path_params['nodeId'] = local_var_params['node_id']  # noqa: E501
-        if 'deployment_id' in local_var_params:
-            path_params['deploymentId'] = local_var_params['deployment_id']  # noqa: E501
 
         query_params = []
 
@@ -240,39 +232,37 @@ class PeerInfoApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_peer_deployments(self, node_id, deployment_id, **kwargs):  # noqa: E501
+    def list_peer_deployments(self, node_id, **kwargs):  # noqa: E501
         """list_peer_deployments  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_peer_deployments(node_id, deployment_id, async_req=True)
+        >>> thread = api.list_peer_deployments(node_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str node_id: GU Network node identifier (required)
-        :param str deployment_id: (required)
         :return: list[PeerSessionSpec]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.list_peer_deployments_with_http_info(node_id, deployment_id, **kwargs)  # noqa: E501
+            return self.list_peer_deployments_with_http_info(node_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.list_peer_deployments_with_http_info(node_id, deployment_id, **kwargs)  # noqa: E501
+            (data) = self.list_peer_deployments_with_http_info(node_id, **kwargs)  # noqa: E501
             return data
 
-    def list_peer_deployments_with_http_info(self, node_id, deployment_id, **kwargs):  # noqa: E501
+    def list_peer_deployments_with_http_info(self, node_id, **kwargs):  # noqa: E501
         """list_peer_deployments  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_peer_deployments_with_http_info(node_id, deployment_id, async_req=True)
+        >>> thread = api.list_peer_deployments_with_http_info(node_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str node_id: GU Network node identifier (required)
-        :param str deployment_id: (required)
         :return: list[PeerSessionSpec]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -280,7 +270,7 @@ class PeerInfoApi(object):
 
         local_var_params = locals()
 
-        all_params = ['node_id', 'deployment_id']  # noqa: E501
+        all_params = ['node_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -298,10 +288,6 @@ class PeerInfoApi(object):
         if ('node_id' not in local_var_params or
                 local_var_params['node_id'] is None):
             raise ValueError("Missing the required parameter `node_id` when calling `list_peer_deployments`")  # noqa: E501
-        # verify the required parameter 'deployment_id' is set
-        if ('deployment_id' not in local_var_params or
-                local_var_params['deployment_id'] is None):
-            raise ValueError("Missing the required parameter `deployment_id` when calling `list_peer_deployments`")  # noqa: E501
 
         if 'node_id' in local_var_params and not re.search(r'0x[0-9a-f]{40}', local_var_params['node_id']):  # noqa: E501
             raise ValueError("Invalid value for parameter `node_id` when calling `list_peer_deployments`, must conform to the pattern `/0x[0-9a-f]{40}/`")  # noqa: E501
@@ -310,8 +296,6 @@ class PeerInfoApi(object):
         path_params = {}
         if 'node_id' in local_var_params:
             path_params['nodeId'] = local_var_params['node_id']  # noqa: E501
-        if 'deployment_id' in local_var_params:
-            path_params['deploymentId'] = local_var_params['deployment_id']  # noqa: E501
 
         query_params = []
 
