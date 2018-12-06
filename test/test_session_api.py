@@ -56,6 +56,12 @@ class TestSessionApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_hub_session(self):
+        """Test case for delete_hub_session
+
+        """
+        pass
+
     def test_delete_peer_session(self):
         """Test case for delete_peer_session
 
@@ -94,12 +100,6 @@ class TestSessionApi(unittest.TestCase):
         """Test case for list_hub_sessions
 
         Lists current hub sessions.  # noqa: E501
-        """
-        pass
-
-    def test_sessions_session_id_delete(self):
-        """Test case for sessions_session_id_delete
-
         """
         pass
 
