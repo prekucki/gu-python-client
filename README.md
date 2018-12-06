@@ -96,8 +96,8 @@ Class | Method | HTTP request | Description
 *SessionApi* | [**get_hub_session_config**](docs/SessionApi.md#get_hub_session_config) | **GET** /sessions/{sessionId}/config | Gets configuration from stash
 *SessionApi* | [**list_hub_session_blobs**](docs/SessionApi.md#list_hub_session_blobs) | **GET** /sessions/{sessionId}/blobs | Lists currently allocated lobs
 *SessionApi* | [**list_hub_sessions**](docs/SessionApi.md#list_hub_sessions) | **GET** /sessions | Lists current hub sessions.
-*SessionApi* | [**sessions_session_id_patch**](docs/SessionApi.md#sessions_session_id_patch) | **PATCH** /sessions/{sessionId} | Hub session update
 *SessionApi* | [**set_hub_session_config**](docs/SessionApi.md#set_hub_session_config) | **PUT** /sessions/{sessionId}/config | Sets configuration stash
+*SessionApi* | [**update_hub_session**](docs/SessionApi.md#update_hub_session) | **PATCH** /sessions/{sessionId} | Hub session update
 *SessionApi* | [**update_peer_session**](docs/SessionApi.md#update_peer_session) | **PATCH** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | Sends multiple commands for peer
 *SessionApi* | [**upload_blob**](docs/SessionApi.md#upload_blob) | **PUT** /sessions/{sessionId}/blobs/{blobId} | Uploads a binary content to the hub.
 

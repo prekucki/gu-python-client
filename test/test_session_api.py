@@ -103,17 +103,17 @@ class TestSessionApi(unittest.TestCase):
         """
         pass
 
-    def test_sessions_session_id_patch(self):
-        """Test case for sessions_session_id_patch
-
-        Hub session update  # noqa: E501
-        """
-        pass
-
     def test_set_hub_session_config(self):
         """Test case for set_hub_session_config
 
         Sets configuration stash  # noqa: E501
+        """
+        pass
+
+    def test_update_hub_session(self):
+        """Test case for update_hub_session
+
+        Hub session update  # noqa: E501
         """
         pass
 
