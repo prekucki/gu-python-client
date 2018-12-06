@@ -144,6 +144,7 @@ class SessionApi(object):
 
         :param async_req bool
         :param int session_id: HUB session id (required)
+        :param file body:
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -165,6 +166,7 @@ class SessionApi(object):
 
         :param async_req bool
         :param int session_id: HUB session id (required)
+        :param file body:
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -172,7 +174,7 @@ class SessionApi(object):
 
         local_var_params = locals()
 
-        all_params = ['session_id']  # noqa: E501
+        all_params = ['session_id', 'body']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -203,11 +205,17 @@ class SessionApi(object):
 
         form_params = []
         local_var_files = {}
+        if 'body' in local_var_params:
+            local_var_files['body'] = local_var_params['body']  # noqa: E501
 
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['*/*'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['serviceToken', 'systemName']  # noqa: E501

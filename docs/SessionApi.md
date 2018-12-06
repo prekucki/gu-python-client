@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_blob**
-> str create_blob(session_id)
+> str create_blob(session_id, body=body)
 
 Creates new lob
 
@@ -129,10 +129,11 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
+body = '/path/to/file' # file |  (optional)
 
 try:
     # Creates new lob
-    api_response = api_instance.create_blob(session_id)
+    api_response = api_instance.create_blob(session_id, body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SessionApi->create_blob: %s\n" % e)
@@ -156,10 +157,11 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
+body = '/path/to/file' # file |  (optional)
 
 try:
     # Creates new lob
-    api_response = api_instance.create_blob(session_id)
+    api_response = api_instance.create_blob(session_id, body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SessionApi->create_blob: %s\n" % e)
@@ -170,6 +172,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **session_id** | **int**| HUB session id | 
+ **body** | **file**|  | [optional] 
 
 ### Return type
 
@@ -181,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
