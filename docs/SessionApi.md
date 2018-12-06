@@ -682,7 +682,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_hub_session_config**
-> ConfigStash get_hub_session_config(session_id)
+> dict(str, object) get_hub_session_config(session_id)
 
 Gets configuration from stash
 
@@ -749,7 +749,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ConfigStash**](ConfigStash.md)
+**dict(str, object)**
 
 ### Authorization
 
