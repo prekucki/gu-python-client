@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**create_blob**](SessionApi.md#create_blob) | **POST** /sessions/{sessionId}/blobs | Creates new lob
 [**create_hub_session**](SessionApi.md#create_hub_session) | **POST** /sessions | Creates new hub session.
 [**create_peer_session**](SessionApi.md#create_peer_session) | **POST** /sessions/{sessionId}/peers/{nodeId}/deployments | Creates new deploymnet
+[**delete_blob**](SessionApi.md#delete_blob) | **DELETE** /sessions/{sessionId}/blobs/{blobId} | 
 [**delete_hub_session**](SessionApi.md#delete_hub_session) | **DELETE** /sessions/{sessionId} | 
 [**delete_peer_session**](SessionApi.md#delete_peer_session) | **DELETE** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | 
 [**download_blob**](SessionApi.md#download_blob) | **GET** /sessions/{sessionId}/blobs/{blobId} | Downloads binary content from the hub
@@ -356,6 +357,86 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_blob**
+> delete_blob(session_id, blob_id)
+
+
+
+### Example
+
+* Api Key Authentication (serviceToken): 
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: serviceToken
+configuration = gu_rest_api.Configuration()
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
+session_id = 56 # int | HUB session id
+blob_id = 'blob_id_example' # str | Blob identifier
+
+try:
+    api_instance.delete_blob(session_id, blob_id)
+except ApiException as e:
+    print("Exception when calling SessionApi->delete_blob: %s\n" % e)
+```
+
+
+* Api Key Authentication (systemName): 
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: systemName
+configuration = gu_rest_api.Configuration()
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
+session_id = 56 # int | HUB session id
+blob_id = 'blob_id_example' # str | Blob identifier
+
+try:
+    api_instance.delete_blob(session_id, blob_id)
+except ApiException as e:
+    print("Exception when calling SessionApi->delete_blob: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **session_id** | **int**| HUB session id | 
+ **blob_id** | **str**| Blob identifier | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[serviceToken](../README.md#serviceToken), [systemName](../README.md#systemName)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

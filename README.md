@@ -89,6 +89,7 @@ Class | Method | HTTP request | Description
 *SessionApi* | [**create_blob**](docs/SessionApi.md#create_blob) | **POST** /sessions/{sessionId}/blobs | Creates new lob
 *SessionApi* | [**create_hub_session**](docs/SessionApi.md#create_hub_session) | **POST** /sessions | Creates new hub session.
 *SessionApi* | [**create_peer_session**](docs/SessionApi.md#create_peer_session) | **POST** /sessions/{sessionId}/peers/{nodeId}/deployments | Creates new deploymnet
+*SessionApi* | [**delete_blob**](docs/SessionApi.md#delete_blob) | **DELETE** /sessions/{sessionId}/blobs/{blobId} | 
 *SessionApi* | [**delete_hub_session**](docs/SessionApi.md#delete_hub_session) | **DELETE** /sessions/{sessionId} | 
 *SessionApi* | [**delete_peer_session**](docs/SessionApi.md#delete_peer_session) | **DELETE** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | 
 *SessionApi* | [**download_blob**](docs/SessionApi.md#download_blob) | **GET** /sessions/{sessionId}/blobs/{blobId} | Downloads binary content from the hub
