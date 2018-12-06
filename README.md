@@ -89,13 +89,13 @@ Class | Method | HTTP request | Description
 *SessionApi* | [**create_blob**](docs/SessionApi.md#create_blob) | **POST** /sessions/{sessionId}/blobs | Creates new lob
 *SessionApi* | [**create_hub_session**](docs/SessionApi.md#create_hub_session) | **POST** /sessions | Creates new hub session.
 *SessionApi* | [**create_peer_session**](docs/SessionApi.md#create_peer_session) | **POST** /sessions/{sessionId}/peers/{nodeId}/deployments | Creates new deploymnet
+*SessionApi* | [**delete_hub_session**](docs/SessionApi.md#delete_hub_session) | **DELETE** /sessions/{sessionId} | 
 *SessionApi* | [**delete_peer_session**](docs/SessionApi.md#delete_peer_session) | **DELETE** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | 
 *SessionApi* | [**download_blob**](docs/SessionApi.md#download_blob) | **GET** /sessions/{sessionId}/blobs/{blobId} | Downloads binary content from the hub
 *SessionApi* | [**get_hub_session**](docs/SessionApi.md#get_hub_session) | **GET** /sessions/{sessionId} | Gets hub session info
 *SessionApi* | [**get_hub_session_config**](docs/SessionApi.md#get_hub_session_config) | **GET** /sessions/{sessionId}/config | Gets configuration from stash
 *SessionApi* | [**list_hub_session_blobs**](docs/SessionApi.md#list_hub_session_blobs) | **GET** /sessions/{sessionId}/blobs | Lists currently allocated lobs
 *SessionApi* | [**list_hub_sessions**](docs/SessionApi.md#list_hub_sessions) | **GET** /sessions | Lists current hub sessions.
-*SessionApi* | [**sessions_session_id_delete**](docs/SessionApi.md#sessions_session_id_delete) | **DELETE** /sessions/{sessionId} | 
 *SessionApi* | [**sessions_session_id_patch**](docs/SessionApi.md#sessions_session_id_patch) | **PATCH** /sessions/{sessionId} | Hub session update
 *SessionApi* | [**set_hub_session_config**](docs/SessionApi.md#set_hub_session_config) | **PUT** /sessions/{sessionId}/config | Sets configuration stash
 *SessionApi* | [**update_peer_session**](docs/SessionApi.md#update_peer_session) | **PATCH** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | Sends multiple commands for peer
