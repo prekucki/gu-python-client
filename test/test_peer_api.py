@@ -15,23 +15,35 @@ from __future__ import absolute_import
 import unittest
 
 import gu_rest_api
-from gu_rest_api.api.peer_info_api import PeerInfoApi  # noqa: E501
+from gu_rest_api.api.peer_api import PeerApi  # noqa: E501
 from gu_rest_api.rest import ApiException
 
 
-class TestPeerInfoApi(unittest.TestCase):
-    """PeerInfoApi unit test stubs"""
+class TestPeerApi(unittest.TestCase):
+    """PeerApi unit test stubs"""
 
     def setUp(self):
-        self.api = gu_rest_api.api.peer_info_api.PeerInfoApi()  # noqa: E501
+        self.api = gu_rest_api.api.peer_api.PeerApi()  # noqa: E501
 
     def tearDown(self):
+        pass
+
+    def test_create_deployment_on_peer(self):
+        """Test case for create_deployment_on_peer
+
+        """
         pass
 
     def test_get_peer_details(self):
         """Test case for get_peer_details
 
         Returns detailed peer info  # noqa: E501
+        """
+        pass
+
+    def test_list_peer_deployments(self):
+        """Test case for list_peer_deployments
+
         """
         pass
 

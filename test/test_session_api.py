@@ -15,15 +15,15 @@ from __future__ import absolute_import
 import unittest
 
 import gu_rest_api
-from gu_rest_api.api.hub_session_api import HubSessionApi  # noqa: E501
+from gu_rest_api.api.session_api import SessionApi  # noqa: E501
 from gu_rest_api.rest import ApiException
 
 
-class TestHubSessionApi(unittest.TestCase):
-    """HubSessionApi unit test stubs"""
+class TestSessionApi(unittest.TestCase):
+    """SessionApi unit test stubs"""
 
     def setUp(self):
-        self.api = gu_rest_api.api.hub_session_api.HubSessionApi()  # noqa: E501
+        self.api = gu_rest_api.api.session_api.SessionApi()  # noqa: E501
 
     def tearDown(self):
         pass
@@ -35,9 +35,37 @@ class TestHubSessionApi(unittest.TestCase):
         """
         pass
 
+    def test_create_blob(self):
+        """Test case for create_blob
+
+        Creates new lob  # noqa: E501
+        """
+        pass
+
     def test_create_hub_session(self):
         """Test case for create_hub_session
 
+        Creates new hub session.  # noqa: E501
+        """
+        pass
+
+    def test_create_peer_session(self):
+        """Test case for create_peer_session
+
+        Creates new deploymnet  # noqa: E501
+        """
+        pass
+
+    def test_delete_peer_session(self):
+        """Test case for delete_peer_session
+
+        """
+        pass
+
+    def test_download_blob(self):
+        """Test case for download_blob
+
+        Downloads binary content from the hub  # noqa: E501
         """
         pass
 
@@ -52,6 +80,13 @@ class TestHubSessionApi(unittest.TestCase):
         """Test case for get_hub_session_config
 
         Gets configuration from stash  # noqa: E501
+        """
+        pass
+
+    def test_list_hub_session_blobs(self):
+        """Test case for list_hub_session_blobs
+
+        Lists currently allocated lobs  # noqa: E501
         """
         pass
 
@@ -75,10 +110,24 @@ class TestHubSessionApi(unittest.TestCase):
         """
         pass
 
-    def test_set_hub_session_configuration(self):
-        """Test case for set_hub_session_configuration
+    def test_set_hub_session_config(self):
+        """Test case for set_hub_session_config
 
         Sets configuration stash  # noqa: E501
+        """
+        pass
+
+    def test_update_peer_session(self):
+        """Test case for update_peer_session
+
+        Sends multiple commands for peer  # noqa: E501
+        """
+        pass
+
+    def test_upload_blob(self):
+        """Test case for upload_blob
+
+        Uploads a binary content to the hub.  # noqa: E501
         """
         pass
 
