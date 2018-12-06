@@ -228,40 +228,40 @@ class SessionApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_hub_session(self, **kwargs):  # noqa: E501
+    def create_hub_session(self, hub_session, **kwargs):  # noqa: E501
         """Creates new hub session.  # noqa: E501
 
         Allowed fileds:  * name        - human readable session name * expires     - session expiration timestamp * allocation  - resource allocation mode.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_hub_session(async_req=True)
+        >>> thread = api.create_hub_session(hub_session, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param HubSession hub_session:
-        :return: str
+        :param HubSession hub_session: (required)
+        :return: int
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_hub_session_with_http_info(**kwargs)  # noqa: E501
+            return self.create_hub_session_with_http_info(hub_session, **kwargs)  # noqa: E501
         else:
-            (data) = self.create_hub_session_with_http_info(**kwargs)  # noqa: E501
+            (data) = self.create_hub_session_with_http_info(hub_session, **kwargs)  # noqa: E501
             return data
 
-    def create_hub_session_with_http_info(self, **kwargs):  # noqa: E501
+    def create_hub_session_with_http_info(self, hub_session, **kwargs):  # noqa: E501
         """Creates new hub session.  # noqa: E501
 
         Allowed fileds:  * name        - human readable session name * expires     - session expiration timestamp * allocation  - resource allocation mode.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_hub_session_with_http_info(async_req=True)
+        >>> thread = api.create_hub_session_with_http_info(hub_session, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param HubSession hub_session:
-        :return: str
+        :param HubSession hub_session: (required)
+        :return: int
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -282,6 +282,10 @@ class SessionApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'hub_session' is set
+        if ('hub_session' not in local_var_params or
+                local_var_params['hub_session'] is None):
+            raise ValueError("Missing the required parameter `hub_session` when calling `create_hub_session`")  # noqa: E501
 
         collection_formats = {}
 
@@ -316,7 +320,7 @@ class SessionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='str',  # noqa: E501
+            response_type='int',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_hub_session**
-> str create_hub_session(hub_session=hub_session)
+> int create_hub_session(hub_session)
 
 Creates new hub session.
 
@@ -211,11 +211,11 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
-hub_session = gu_rest_api.HubSession() # HubSession |  (optional)
+hub_session = gu_rest_api.HubSession() # HubSession | 
 
 try:
     # Creates new hub session.
-    api_response = api_instance.create_hub_session(hub_session=hub_session)
+    api_response = api_instance.create_hub_session(hub_session)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SessionApi->create_hub_session: %s\n" % e)
@@ -238,11 +238,11 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
-hub_session = gu_rest_api.HubSession() # HubSession |  (optional)
+hub_session = gu_rest_api.HubSession() # HubSession | 
 
 try:
     # Creates new hub session.
-    api_response = api_instance.create_hub_session(hub_session=hub_session)
+    api_response = api_instance.create_hub_session(hub_session)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SessionApi->create_hub_session: %s\n" % e)
@@ -252,11 +252,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hub_session** | [**HubSession**](HubSession.md)|  | [optional] 
+ **hub_session** | [**HubSession**](HubSession.md)|  | 
 
 ### Return type
 
-**str**
+**int**
 
 ### Authorization
 
