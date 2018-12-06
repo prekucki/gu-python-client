@@ -1010,7 +1010,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_hub_session_config**
-> dict(str, object) set_hub_session_config(session_id, request_body)
+> int set_hub_session_config(session_id, request_body)
 
 Sets configuration stash
 
@@ -1080,7 +1080,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**dict(str, object)**
+**int**
 
 ### Authorization
 

@@ -1225,7 +1225,7 @@ class SessionApi(object):
         :param async_req bool
         :param int session_id: HUB session id (required)
         :param dict(str, object) request_body: New config stash value (required)
-        :return: dict(str, object)
+        :return: int
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1247,7 +1247,7 @@ class SessionApi(object):
         :param async_req bool
         :param int session_id: HUB session id (required)
         :param dict(str, object) request_body: New config stash value (required)
-        :return: dict(str, object)
+        :return: int
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1308,7 +1308,7 @@ class SessionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='dict(str, object)',  # noqa: E501
+            response_type='int',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
