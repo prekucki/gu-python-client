@@ -1515,13 +1515,13 @@ class SessionApi(object):
 
         form_params = []
         local_var_files = {}
-        if 'body' in local_var_params:
-            local_var_files['body'] = local_var_params['body']  # noqa: E501
 
         body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['multipart/form-data'])  # noqa: E501
+            ['application/octet-stream'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['serviceToken', 'systemName']  # noqa: E501
