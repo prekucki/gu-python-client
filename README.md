@@ -85,7 +85,7 @@ Class | Method | HTTP request | Description
 *PeerApi* | [**get_peer_details**](docs/PeerApi.md#get_peer_details) | **GET** /peers/{nodeId} | Returns detailed peer info
 *PeerApi* | [**list_deployments**](docs/PeerApi.md#list_deployments) | **GET** /peers/{nodeId}/deployments | 
 *PeerApi* | [**list_peers**](docs/PeerApi.md#list_peers) | **GET** /peers | Returns a list hub peers.
-*SessionApi* | [**add_hub_session_peers**](docs/SessionApi.md#add_hub_session_peers) | **POST** /sessions/{sessionId}/peers | Manually adds peers to hub session
+*SessionApi* | [**add_session_peers**](docs/SessionApi.md#add_session_peers) | **POST** /sessions/{sessionId}/peers | Manually adds peers to hub session
 *SessionApi* | [**create_blob**](docs/SessionApi.md#create_blob) | **POST** /sessions/{sessionId}/blobs | Creates new lob
 *SessionApi* | [**create_deploymnet**](docs/SessionApi.md#create_deploymnet) | **POST** /sessions/{sessionId}/peers/{nodeId}/deployments | Creates new deploymnet
 *SessionApi* | [**create_session**](docs/SessionApi.md#create_session) | **POST** /sessions | Creates new hub session.

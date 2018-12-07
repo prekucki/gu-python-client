@@ -4,7 +4,7 @@ All URIs are relative to *http://127.0.0.1:61622*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_hub_session_peers**](SessionApi.md#add_hub_session_peers) | **POST** /sessions/{sessionId}/peers | Manually adds peers to hub session
+[**add_session_peers**](SessionApi.md#add_session_peers) | **POST** /sessions/{sessionId}/peers | Manually adds peers to hub session
 [**create_blob**](SessionApi.md#create_blob) | **POST** /sessions/{sessionId}/blobs | Creates new lob
 [**create_deploymnet**](SessionApi.md#create_deploymnet) | **POST** /sessions/{sessionId}/peers/{nodeId}/deployments | Creates new deploymnet
 [**create_session**](SessionApi.md#create_session) | **POST** /sessions | Creates new hub session.
@@ -22,8 +22,8 @@ Method | HTTP request | Description
 [**upload_blob**](SessionApi.md#upload_blob) | **PUT** /sessions/{sessionId}/blobs/{blobId} | Uploads a binary content to the hub.
 
 
-# **add_hub_session_peers**
-> list[str] add_hub_session_peers(session_id, request_body)
+# **add_session_peers**
+> list[str] add_session_peers(session_id, request_body)
 
 Manually adds peers to hub session
 
@@ -50,10 +50,10 @@ request_body = NULL # list[str] |
 
 try:
     # Manually adds peers to hub session
-    api_response = api_instance.add_hub_session_peers(session_id, request_body)
+    api_response = api_instance.add_session_peers(session_id, request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SessionApi->add_hub_session_peers: %s\n" % e)
+    print("Exception when calling SessionApi->add_session_peers: %s\n" % e)
 ```
 
 
@@ -78,10 +78,10 @@ request_body = NULL # list[str] |
 
 try:
     # Manually adds peers to hub session
-    api_response = api_instance.add_hub_session_peers(session_id, request_body)
+    api_response = api_instance.add_session_peers(session_id, request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SessionApi->add_hub_session_peers: %s\n" % e)
+    print("Exception when calling SessionApi->add_session_peers: %s\n" % e)
 ```
 
 ### Parameters

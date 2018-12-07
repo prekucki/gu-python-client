@@ -32,12 +32,12 @@ class SessionApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def add_hub_session_peers(self, session_id, request_body, **kwargs):  # noqa: E501
+    def add_session_peers(self, session_id, request_body, **kwargs):  # noqa: E501
         """Manually adds peers to hub session  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_hub_session_peers(session_id, request_body, async_req=True)
+        >>> thread = api.add_session_peers(session_id, request_body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -49,17 +49,17 @@ class SessionApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.add_hub_session_peers_with_http_info(session_id, request_body, **kwargs)  # noqa: E501
+            return self.add_session_peers_with_http_info(session_id, request_body, **kwargs)  # noqa: E501
         else:
-            (data) = self.add_hub_session_peers_with_http_info(session_id, request_body, **kwargs)  # noqa: E501
+            (data) = self.add_session_peers_with_http_info(session_id, request_body, **kwargs)  # noqa: E501
             return data
 
-    def add_hub_session_peers_with_http_info(self, session_id, request_body, **kwargs):  # noqa: E501
+    def add_session_peers_with_http_info(self, session_id, request_body, **kwargs):  # noqa: E501
         """Manually adds peers to hub session  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_hub_session_peers_with_http_info(session_id, request_body, async_req=True)
+        >>> thread = api.add_session_peers_with_http_info(session_id, request_body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -82,18 +82,18 @@ class SessionApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method add_hub_session_peers" % key
+                    " to method add_session_peers" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'session_id' is set
         if ('session_id' not in local_var_params or
                 local_var_params['session_id'] is None):
-            raise ValueError("Missing the required parameter `session_id` when calling `add_hub_session_peers`")  # noqa: E501
+            raise ValueError("Missing the required parameter `session_id` when calling `add_session_peers`")  # noqa: E501
         # verify the required parameter 'request_body' is set
         if ('request_body' not in local_var_params or
                 local_var_params['request_body'] is None):
-            raise ValueError("Missing the required parameter `request_body` when calling `add_hub_session_peers`")  # noqa: E501
+            raise ValueError("Missing the required parameter `request_body` when calling `add_session_peers`")  # noqa: E501
 
         collection_formats = {}
 
