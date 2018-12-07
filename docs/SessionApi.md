@@ -6,19 +6,19 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_hub_session_peers**](SessionApi.md#add_hub_session_peers) | **POST** /sessions/{sessionId}/peers | Manually adds peers to hub session
 [**create_blob**](SessionApi.md#create_blob) | **POST** /sessions/{sessionId}/blobs | Creates new lob
-[**create_hub_session**](SessionApi.md#create_hub_session) | **POST** /sessions | Creates new hub session.
-[**create_peer_session**](SessionApi.md#create_peer_session) | **POST** /sessions/{sessionId}/peers/{nodeId}/deployments | Creates new deploymnet
+[**create_deploymnet**](SessionApi.md#create_deploymnet) | **POST** /sessions/{sessionId}/peers/{nodeId}/deployments | Creates new deploymnet
+[**create_session**](SessionApi.md#create_session) | **POST** /sessions | Creates new hub session.
 [**delete_blob**](SessionApi.md#delete_blob) | **DELETE** /sessions/{sessionId}/blobs/{blobId} | 
-[**delete_hub_session**](SessionApi.md#delete_hub_session) | **DELETE** /sessions/{sessionId} | 
-[**delete_peer_session**](SessionApi.md#delete_peer_session) | **DELETE** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | 
+[**delete_deploymnet**](SessionApi.md#delete_deploymnet) | **DELETE** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | 
+[**delete_session**](SessionApi.md#delete_session) | **DELETE** /sessions/{sessionId} | 
 [**download_blob**](SessionApi.md#download_blob) | **GET** /sessions/{sessionId}/blobs/{blobId} | Downloads binary content from the hub
-[**get_hub_session**](SessionApi.md#get_hub_session) | **GET** /sessions/{sessionId} | Gets hub session info
-[**get_hub_session_config**](SessionApi.md#get_hub_session_config) | **GET** /sessions/{sessionId}/config | Gets configuration from stash
+[**get_config**](SessionApi.md#get_config) | **GET** /sessions/{sessionId}/config | Gets configuration from stash
+[**get_session**](SessionApi.md#get_session) | **GET** /sessions/{sessionId} | Gets hub session info
 [**list_hub_session_blobs**](SessionApi.md#list_hub_session_blobs) | **GET** /sessions/{sessionId}/blobs | Lists currently allocated lobs
-[**list_hub_sessions**](SessionApi.md#list_hub_sessions) | **GET** /sessions | Lists current hub sessions.
-[**set_hub_session_config**](SessionApi.md#set_hub_session_config) | **PUT** /sessions/{sessionId}/config | Sets configuration stash
-[**update_hub_session**](SessionApi.md#update_hub_session) | **PATCH** /sessions/{sessionId} | Hub session update
-[**update_peer_session**](SessionApi.md#update_peer_session) | **PATCH** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | Sends multiple commands for peer
+[**list_sessions**](SessionApi.md#list_sessions) | **GET** /sessions | Lists current hub sessions.
+[**set_config**](SessionApi.md#set_config) | **PUT** /sessions/{sessionId}/config | Sets configuration stash
+[**update_deployment**](SessionApi.md#update_deployment) | **PATCH** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | Sends multiple commands for peer
+[**update_session**](SessionApi.md#update_session) | **PATCH** /sessions/{sessionId} | Hub session update
 [**upload_blob**](SessionApi.md#upload_blob) | **PUT** /sessions/{sessionId}/blobs/{blobId} | Uploads a binary content to the hub.
 
 
@@ -190,8 +190,95 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **create_hub_session**
-> int create_hub_session(hub_session)
+# **create_deploymnet**
+> str create_deploymnet(session_id, node_id, deployment_spec)
+
+Creates new deploymnet
+
+### Example
+
+* Api Key Authentication (serviceToken): 
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: serviceToken
+configuration = gu_rest_api.Configuration()
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
+session_id = 56 # int | HUB session id
+node_id = 'node_id_example' # str | GU Network node identifier
+deployment_spec = gu_rest_api.DeploymentSpec() # DeploymentSpec | 
+
+try:
+    # Creates new deploymnet
+    api_response = api_instance.create_deploymnet(session_id, node_id, deployment_spec)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SessionApi->create_deploymnet: %s\n" % e)
+```
+
+
+* Api Key Authentication (systemName): 
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: systemName
+configuration = gu_rest_api.Configuration()
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
+session_id = 56 # int | HUB session id
+node_id = 'node_id_example' # str | GU Network node identifier
+deployment_spec = gu_rest_api.DeploymentSpec() # DeploymentSpec | 
+
+try:
+    # Creates new deploymnet
+    api_response = api_instance.create_deploymnet(session_id, node_id, deployment_spec)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SessionApi->create_deploymnet: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **session_id** | **int**| HUB session id | 
+ **node_id** | **str**| GU Network node identifier | 
+ **deployment_spec** | [**DeploymentSpec**](DeploymentSpec.md)|  | 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[serviceToken](../README.md#serviceToken), [systemName](../README.md#systemName)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **create_session**
+> int create_session(hub_session)
 
 Creates new hub session.
 
@@ -219,10 +306,10 @@ hub_session = gu_rest_api.HubSession() # HubSession |
 
 try:
     # Creates new hub session.
-    api_response = api_instance.create_hub_session(hub_session)
+    api_response = api_instance.create_session(hub_session)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SessionApi->create_hub_session: %s\n" % e)
+    print("Exception when calling SessionApi->create_session: %s\n" % e)
 ```
 
 
@@ -246,10 +333,10 @@ hub_session = gu_rest_api.HubSession() # HubSession |
 
 try:
     # Creates new hub session.
-    api_response = api_instance.create_hub_session(hub_session)
+    api_response = api_instance.create_session(hub_session)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SessionApi->create_hub_session: %s\n" % e)
+    print("Exception when calling SessionApi->create_session: %s\n" % e)
 ```
 
 ### Parameters
@@ -270,93 +357,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **create_peer_session**
-> str create_peer_session(session_id, node_id, peer_session_spec)
-
-Creates new deploymnet
-
-### Example
-
-* Api Key Authentication (serviceToken): 
-```python
-from __future__ import print_function
-import time
-import gu_rest_api
-from gu_rest_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: serviceToken
-configuration = gu_rest_api.Configuration()
-configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 56 # int | HUB session id
-node_id = 'node_id_example' # str | GU Network node identifier
-peer_session_spec = gu_rest_api.PeerSessionSpec() # PeerSessionSpec | 
-
-try:
-    # Creates new deploymnet
-    api_response = api_instance.create_peer_session(session_id, node_id, peer_session_spec)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SessionApi->create_peer_session: %s\n" % e)
-```
-
-
-* Api Key Authentication (systemName): 
-```python
-from __future__ import print_function
-import time
-import gu_rest_api
-from gu_rest_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: systemName
-configuration = gu_rest_api.Configuration()
-configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 56 # int | HUB session id
-node_id = 'node_id_example' # str | GU Network node identifier
-peer_session_spec = gu_rest_api.PeerSessionSpec() # PeerSessionSpec | 
-
-try:
-    # Creates new deploymnet
-    api_response = api_instance.create_peer_session(session_id, node_id, peer_session_spec)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SessionApi->create_peer_session: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **session_id** | **int**| HUB session id | 
- **node_id** | **str**| GU Network node identifier | 
- **peer_session_spec** | [**PeerSessionSpec**](PeerSessionSpec.md)|  | 
-
-### Return type
-
-**str**
-
-### Authorization
-
-[serviceToken](../README.md#serviceToken), [systemName](../README.md#systemName)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -440,8 +440,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_hub_session**
-> delete_hub_session(session_id)
+# **delete_deploymnet**
+> delete_deploymnet(session_id, node_id, deployment_id)
 
 
 
@@ -464,11 +464,13 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
+node_id = 'node_id_example' # str | GU Network node identifier
+deployment_id = 'deployment_id_example' # str | 
 
 try:
-    api_instance.delete_hub_session(session_id)
+    api_instance.delete_deploymnet(session_id, node_id, deployment_id)
 except ApiException as e:
-    print("Exception when calling SessionApi->delete_hub_session: %s\n" % e)
+    print("Exception when calling SessionApi->delete_deploymnet: %s\n" % e)
 ```
 
 
@@ -489,11 +491,13 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
+node_id = 'node_id_example' # str | GU Network node identifier
+deployment_id = 'deployment_id_example' # str | 
 
 try:
-    api_instance.delete_hub_session(session_id)
+    api_instance.delete_deploymnet(session_id, node_id, deployment_id)
 except ApiException as e:
-    print("Exception when calling SessionApi->delete_hub_session: %s\n" % e)
+    print("Exception when calling SessionApi->delete_deploymnet: %s\n" % e)
 ```
 
 ### Parameters
@@ -501,6 +505,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **session_id** | **int**| HUB session id | 
+ **node_id** | **str**| GU Network node identifier | 
+ **deployment_id** | **str**|  | 
 
 ### Return type
 
@@ -517,8 +523,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_peer_session**
-> delete_peer_session(session_id, node_id, deployment_id)
+# **delete_session**
+> delete_session(session_id)
 
 
 
@@ -541,13 +547,11 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
-node_id = 'node_id_example' # str | GU Network node identifier
-deployment_id = 'deployment_id_example' # str | 
 
 try:
-    api_instance.delete_peer_session(session_id, node_id, deployment_id)
+    api_instance.delete_session(session_id)
 except ApiException as e:
-    print("Exception when calling SessionApi->delete_peer_session: %s\n" % e)
+    print("Exception when calling SessionApi->delete_session: %s\n" % e)
 ```
 
 
@@ -568,13 +572,11 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
-node_id = 'node_id_example' # str | GU Network node identifier
-deployment_id = 'deployment_id_example' # str | 
 
 try:
-    api_instance.delete_peer_session(session_id, node_id, deployment_id)
+    api_instance.delete_session(session_id)
 except ApiException as e:
-    print("Exception when calling SessionApi->delete_peer_session: %s\n" % e)
+    print("Exception when calling SessionApi->delete_session: %s\n" % e)
 ```
 
 ### Parameters
@@ -582,8 +584,6 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **session_id** | **int**| HUB session id | 
- **node_id** | **str**| GU Network node identifier | 
- **deployment_id** | **str**|  | 
 
 ### Return type
 
@@ -684,89 +684,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_hub_session**
-> HubSession get_hub_session(session_id)
-
-Gets hub session info
-
-### Example
-
-* Api Key Authentication (serviceToken): 
-```python
-from __future__ import print_function
-import time
-import gu_rest_api
-from gu_rest_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: serviceToken
-configuration = gu_rest_api.Configuration()
-configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 56 # int | HUB session id
-
-try:
-    # Gets hub session info
-    api_response = api_instance.get_hub_session(session_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SessionApi->get_hub_session: %s\n" % e)
-```
-
-
-* Api Key Authentication (systemName): 
-```python
-from __future__ import print_function
-import time
-import gu_rest_api
-from gu_rest_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: systemName
-configuration = gu_rest_api.Configuration()
-configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 56 # int | HUB session id
-
-try:
-    # Gets hub session info
-    api_response = api_instance.get_hub_session(session_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SessionApi->get_hub_session: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **session_id** | **int**| HUB session id | 
-
-### Return type
-
-[**HubSession**](HubSession.md)
-
-### Authorization
-
-[serviceToken](../README.md#serviceToken), [systemName](../README.md#systemName)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_hub_session_config**
-> dict(str, object) get_hub_session_config(session_id)
+# **get_config**
+> dict(str, object) get_config(session_id)
 
 Gets configuration from stash
 
@@ -792,10 +711,10 @@ session_id = 56 # int | HUB session id
 
 try:
     # Gets configuration from stash
-    api_response = api_instance.get_hub_session_config(session_id)
+    api_response = api_instance.get_config(session_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SessionApi->get_hub_session_config: %s\n" % e)
+    print("Exception when calling SessionApi->get_config: %s\n" % e)
 ```
 
 
@@ -819,10 +738,10 @@ session_id = 56 # int | HUB session id
 
 try:
     # Gets configuration from stash
-    api_response = api_instance.get_hub_session_config(session_id)
+    api_response = api_instance.get_config(session_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SessionApi->get_hub_session_config: %s\n" % e)
+    print("Exception when calling SessionApi->get_config: %s\n" % e)
 ```
 
 ### Parameters
@@ -834,6 +753,87 @@ Name | Type | Description  | Notes
 ### Return type
 
 **dict(str, object)**
+
+### Authorization
+
+[serviceToken](../README.md#serviceToken), [systemName](../README.md#systemName)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_session**
+> HubSession get_session(session_id)
+
+Gets hub session info
+
+### Example
+
+* Api Key Authentication (serviceToken): 
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: serviceToken
+configuration = gu_rest_api.Configuration()
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
+session_id = 56 # int | HUB session id
+
+try:
+    # Gets hub session info
+    api_response = api_instance.get_session(session_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SessionApi->get_session: %s\n" % e)
+```
+
+
+* Api Key Authentication (systemName): 
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: systemName
+configuration = gu_rest_api.Configuration()
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
+session_id = 56 # int | HUB session id
+
+try:
+    # Gets hub session info
+    api_response = api_instance.get_session(session_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SessionApi->get_session: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **session_id** | **int**| HUB session id | 
+
+### Return type
+
+[**HubSession**](HubSession.md)
 
 ### Authorization
 
@@ -927,8 +927,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_hub_sessions**
-> list[HubSession] list_hub_sessions(limit=limit, offset=offset)
+# **list_sessions**
+> list[HubSession] list_sessions(limit=limit, offset=offset)
 
 Lists current hub sessions.
 
@@ -955,10 +955,10 @@ offset = 0 # int |  (optional) (default to 0)
 
 try:
     # Lists current hub sessions.
-    api_response = api_instance.list_hub_sessions(limit=limit, offset=offset)
+    api_response = api_instance.list_sessions(limit=limit, offset=offset)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SessionApi->list_hub_sessions: %s\n" % e)
+    print("Exception when calling SessionApi->list_sessions: %s\n" % e)
 ```
 
 
@@ -983,10 +983,10 @@ offset = 0 # int |  (optional) (default to 0)
 
 try:
     # Lists current hub sessions.
-    api_response = api_instance.list_hub_sessions(limit=limit, offset=offset)
+    api_response = api_instance.list_sessions(limit=limit, offset=offset)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SessionApi->list_hub_sessions: %s\n" % e)
+    print("Exception when calling SessionApi->list_sessions: %s\n" % e)
 ```
 
 ### Parameters
@@ -1011,8 +1011,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **set_hub_session_config**
-> int set_hub_session_config(session_id, request_body)
+# **set_config**
+> int set_config(session_id, request_body)
 
 Sets configuration stash
 
@@ -1039,10 +1039,10 @@ request_body = NULL # dict(str, object) | New config stash value
 
 try:
     # Sets configuration stash
-    api_response = api_instance.set_hub_session_config(session_id, request_body)
+    api_response = api_instance.set_config(session_id, request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SessionApi->set_hub_session_config: %s\n" % e)
+    print("Exception when calling SessionApi->set_config: %s\n" % e)
 ```
 
 
@@ -1067,10 +1067,10 @@ request_body = NULL # dict(str, object) | New config stash value
 
 try:
     # Sets configuration stash
-    api_response = api_instance.set_hub_session_config(session_id, request_body)
+    api_response = api_instance.set_config(session_id, request_body)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SessionApi->set_hub_session_config: %s\n" % e)
+    print("Exception when calling SessionApi->set_config: %s\n" % e)
 ```
 
 ### Parameters
@@ -1095,90 +1095,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_hub_session**
-> update_hub_session(session_id, hub_session_command=hub_session_command)
-
-Hub session update
-
-### Example
-
-* Api Key Authentication (serviceToken): 
-```python
-from __future__ import print_function
-import time
-import gu_rest_api
-from gu_rest_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: serviceToken
-configuration = gu_rest_api.Configuration()
-configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 56 # int | HUB session id
-hub_session_command = gu_rest_api.HubSessionCommand() # HubSessionCommand |  (optional)
-
-try:
-    # Hub session update
-    api_instance.update_hub_session(session_id, hub_session_command=hub_session_command)
-except ApiException as e:
-    print("Exception when calling SessionApi->update_hub_session: %s\n" % e)
-```
-
-
-* Api Key Authentication (systemName): 
-```python
-from __future__ import print_function
-import time
-import gu_rest_api
-from gu_rest_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: systemName
-configuration = gu_rest_api.Configuration()
-configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 56 # int | HUB session id
-hub_session_command = gu_rest_api.HubSessionCommand() # HubSessionCommand |  (optional)
-
-try:
-    # Hub session update
-    api_instance.update_hub_session(session_id, hub_session_command=hub_session_command)
-except ApiException as e:
-    print("Exception when calling SessionApi->update_hub_session: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **session_id** | **int**| HUB session id | 
- **hub_session_command** | [**HubSessionCommand**](HubSessionCommand.md)|  | [optional] 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[serviceToken](../README.md#serviceToken), [systemName](../README.md#systemName)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **update_peer_session**
-> update_peer_session(session_id, node_id, deployment_id, command)
+# **update_deployment**
+> update_deployment(session_id, node_id, deployment_id, command)
 
 Sends multiple commands for peer
 
@@ -1207,9 +1125,9 @@ command = NULL # list[Command] |
 
 try:
     # Sends multiple commands for peer
-    api_instance.update_peer_session(session_id, node_id, deployment_id, command)
+    api_instance.update_deployment(session_id, node_id, deployment_id, command)
 except ApiException as e:
-    print("Exception when calling SessionApi->update_peer_session: %s\n" % e)
+    print("Exception when calling SessionApi->update_deployment: %s\n" % e)
 ```
 
 
@@ -1236,9 +1154,9 @@ command = NULL # list[Command] |
 
 try:
     # Sends multiple commands for peer
-    api_instance.update_peer_session(session_id, node_id, deployment_id, command)
+    api_instance.update_deployment(session_id, node_id, deployment_id, command)
 except ApiException as e:
-    print("Exception when calling SessionApi->update_peer_session: %s\n" % e)
+    print("Exception when calling SessionApi->update_deployment: %s\n" % e)
 ```
 
 ### Parameters
@@ -1249,6 +1167,88 @@ Name | Type | Description  | Notes
  **node_id** | **str**| GU Network node identifier | 
  **deployment_id** | **str**|  | 
  **command** | [**list[Command]**](list.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[serviceToken](../README.md#serviceToken), [systemName](../README.md#systemName)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_session**
+> update_session(session_id, hub_session_command=hub_session_command)
+
+Hub session update
+
+### Example
+
+* Api Key Authentication (serviceToken): 
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: serviceToken
+configuration = gu_rest_api.Configuration()
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
+session_id = 56 # int | HUB session id
+hub_session_command = gu_rest_api.HubSessionCommand() # HubSessionCommand |  (optional)
+
+try:
+    # Hub session update
+    api_instance.update_session(session_id, hub_session_command=hub_session_command)
+except ApiException as e:
+    print("Exception when calling SessionApi->update_session: %s\n" % e)
+```
+
+
+* Api Key Authentication (systemName): 
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: systemName
+configuration = gu_rest_api.Configuration()
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
+session_id = 56 # int | HUB session id
+hub_session_command = gu_rest_api.HubSessionCommand() # HubSessionCommand |  (optional)
+
+try:
+    # Hub session update
+    api_instance.update_session(session_id, hub_session_command=hub_session_command)
+except ApiException as e:
+    print("Exception when calling SessionApi->update_session: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **session_id** | **int**| HUB session id | 
+ **hub_session_command** | [**HubSessionCommand**](HubSessionCommand.md)|  | [optional] 
 
 ### Return type
 

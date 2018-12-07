@@ -28,8 +28,8 @@ class TestPeerApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_create_deployment_on_peer(self):
-        """Test case for create_deployment_on_peer
+    def test_create_deployment(self):
+        """Test case for create_deployment
 
         """
         pass
@@ -41,8 +41,8 @@ class TestPeerApi(unittest.TestCase):
         """
         pass
 
-    def test_list_peer_deployments(self):
-        """Test case for list_peer_deployments
+    def test_list_deployments(self):
+        """Test case for list_deployments
 
         """
         pass

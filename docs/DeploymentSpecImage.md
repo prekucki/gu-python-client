@@ -1,4 +1,4 @@
-# PeerSessionSpecImage
+# DeploymentSpecImage
 
 ## Properties
 Name | Type | Description | Notes

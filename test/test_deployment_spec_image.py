@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import gu_rest_api
-from gu_rest_api.models.peer_session_spec_image import PeerSessionSpecImage  # noqa: E501
+from gu_rest_api.models.deployment_spec_image import DeploymentSpecImage  # noqa: E501
 from gu_rest_api.rest import ApiException
 
 
-class TestPeerSessionSpecImage(unittest.TestCase):
-    """PeerSessionSpecImage unit test stubs"""
+class TestDeploymentSpecImage(unittest.TestCase):
+    """DeploymentSpecImage unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestPeerSessionSpecImage(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testPeerSessionSpecImage(self):
-        """Test PeerSessionSpecImage"""
+    def testDeploymentSpecImage(self):
+        """Test DeploymentSpecImage"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = gu_rest_api.models.peer_session_spec_image.PeerSessionSpecImage()  # noqa: E501
+        # model = gu_rest_api.models.deployment_spec_image.DeploymentSpecImage()  # noqa: E501
         pass
 
 

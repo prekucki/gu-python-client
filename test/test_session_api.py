@@ -42,28 +42,34 @@ class TestSessionApi(unittest.TestCase):
         """
         pass
 
-    def test_create_hub_session(self):
-        """Test case for create_hub_session
-
-        Creates new hub session.  # noqa: E501
-        """
-        pass
-
-    def test_create_peer_session(self):
-        """Test case for create_peer_session
+    def test_create_deploymnet(self):
+        """Test case for create_deploymnet
 
         Creates new deploymnet  # noqa: E501
         """
         pass
 
-    def test_delete_hub_session(self):
-        """Test case for delete_hub_session
+    def test_create_session(self):
+        """Test case for create_session
+
+        Creates new hub session.  # noqa: E501
+        """
+        pass
+
+    def test_delete_blob(self):
+        """Test case for delete_blob
 
         """
         pass
 
-    def test_delete_peer_session(self):
-        """Test case for delete_peer_session
+    def test_delete_deploymnet(self):
+        """Test case for delete_deploymnet
+
+        """
+        pass
+
+    def test_delete_session(self):
+        """Test case for delete_session
 
         """
         pass
@@ -75,17 +81,17 @@ class TestSessionApi(unittest.TestCase):
         """
         pass
 
-    def test_get_hub_session(self):
-        """Test case for get_hub_session
+    def test_get_config(self):
+        """Test case for get_config
 
-        Gets hub session info  # noqa: E501
+        Gets configuration from stash  # noqa: E501
         """
         pass
 
-    def test_get_hub_session_config(self):
-        """Test case for get_hub_session_config
+    def test_get_session(self):
+        """Test case for get_session
 
-        Gets configuration from stash  # noqa: E501
+        Gets hub session info  # noqa: E501
         """
         pass
 
@@ -96,31 +102,31 @@ class TestSessionApi(unittest.TestCase):
         """
         pass
 
-    def test_list_hub_sessions(self):
-        """Test case for list_hub_sessions
+    def test_list_sessions(self):
+        """Test case for list_sessions
 
         Lists current hub sessions.  # noqa: E501
         """
         pass
 
-    def test_set_hub_session_config(self):
-        """Test case for set_hub_session_config
+    def test_set_config(self):
+        """Test case for set_config
 
         Sets configuration stash  # noqa: E501
         """
         pass
 
-    def test_update_hub_session(self):
-        """Test case for update_hub_session
+    def test_update_deployment(self):
+        """Test case for update_deployment
 
-        Hub session update  # noqa: E501
+        Sends multiple commands for peer  # noqa: E501
         """
         pass
 
-    def test_update_peer_session(self):
-        """Test case for update_peer_session
+    def test_update_session(self):
+        """Test case for update_session
 
-        Sends multiple commands for peer  # noqa: E501
+        Hub session update  # noqa: E501
         """
         pass
 

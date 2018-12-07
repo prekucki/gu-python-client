@@ -4,14 +4,14 @@ All URIs are relative to *http://127.0.0.1:61622*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_deployment_on_peer**](PeerApi.md#create_deployment_on_peer) | **POST** /peers/{nodeId}/deployments | 
+[**create_deployment**](PeerApi.md#create_deployment) | **POST** /peers/{nodeId}/deployments | 
 [**get_peer_details**](PeerApi.md#get_peer_details) | **GET** /peers/{nodeId} | Returns detailed peer info
-[**list_peer_deployments**](PeerApi.md#list_peer_deployments) | **GET** /peers/{nodeId}/deployments | 
+[**list_deployments**](PeerApi.md#list_deployments) | **GET** /peers/{nodeId}/deployments | 
 [**list_peers**](PeerApi.md#list_peers) | **GET** /peers | Returns a list hub peers.
 
 
-# **create_deployment_on_peer**
-> str create_deployment_on_peer(node_id, peer_session_spec)
+# **create_deployment**
+> str create_deployment(node_id, deployment_spec)
 
 
 
@@ -34,13 +34,13 @@ configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
 node_id = 'node_id_example' # str | GU Network node identifier
-peer_session_spec = gu_rest_api.PeerSessionSpec() # PeerSessionSpec | 
+deployment_spec = gu_rest_api.DeploymentSpec() # DeploymentSpec | 
 
 try:
-    api_response = api_instance.create_deployment_on_peer(node_id, peer_session_spec)
+    api_response = api_instance.create_deployment(node_id, deployment_spec)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PeerApi->create_deployment_on_peer: %s\n" % e)
+    print("Exception when calling PeerApi->create_deployment: %s\n" % e)
 ```
 
 
@@ -61,13 +61,13 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
 node_id = 'node_id_example' # str | GU Network node identifier
-peer_session_spec = gu_rest_api.PeerSessionSpec() # PeerSessionSpec | 
+deployment_spec = gu_rest_api.DeploymentSpec() # DeploymentSpec | 
 
 try:
-    api_response = api_instance.create_deployment_on_peer(node_id, peer_session_spec)
+    api_response = api_instance.create_deployment(node_id, deployment_spec)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PeerApi->create_deployment_on_peer: %s\n" % e)
+    print("Exception when calling PeerApi->create_deployment: %s\n" % e)
 ```
 
 ### Parameters
@@ -75,7 +75,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **node_id** | **str**| GU Network node identifier | 
- **peer_session_spec** | [**PeerSessionSpec**](PeerSessionSpec.md)|  | 
+ **deployment_spec** | [**DeploymentSpec**](DeploymentSpec.md)|  | 
 
 ### Return type
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_peer_details**
-> PeerInfo get_peer_details(node_id)
+> PeerDetails get_peer_details(node_id)
 
 Returns detailed peer info
 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PeerInfo**](PeerInfo.md)
+[**PeerDetails**](PeerDetails.md)
 
 ### Authorization
 
@@ -173,8 +173,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_peer_deployments**
-> list[DeploymentInfo] list_peer_deployments(node_id)
+# **list_deployments**
+> list[DeploymentInfo] list_deployments(node_id)
 
 
 
@@ -199,10 +199,10 @@ api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
 node_id = 'node_id_example' # str | GU Network node identifier
 
 try:
-    api_response = api_instance.list_peer_deployments(node_id)
+    api_response = api_instance.list_deployments(node_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PeerApi->list_peer_deployments: %s\n" % e)
+    print("Exception when calling PeerApi->list_deployments: %s\n" % e)
 ```
 
 
@@ -225,10 +225,10 @@ api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
 node_id = 'node_id_example' # str | GU Network node identifier
 
 try:
-    api_response = api_instance.list_peer_deployments(node_id)
+    api_response = api_instance.list_deployments(node_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling PeerApi->list_peer_deployments: %s\n" % e)
+    print("Exception when calling PeerApi->list_deployments: %s\n" % e)
 ```
 
 ### Parameters

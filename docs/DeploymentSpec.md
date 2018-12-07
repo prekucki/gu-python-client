@@ -1,10 +1,10 @@
-# PeerSessionSpec
+# DeploymentSpec
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **env_type** | [**EnvType**](EnvType.md) |  | [optional] 
-**image** | [**PeerSessionSpecImage**](PeerSessionSpecImage.md) |  | [optional] 
+**image** | [**DeploymentSpecImage**](DeploymentSpecImage.md) |  | [optional] 
 **name** | **str** | human readable name | [optional] 
 **tags** | **list[str]** | peer session tags | [optional] 
 
