@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**download_blob**](SessionApi.md#download_blob) | **GET** /sessions/{sessionId}/blobs/{blobId} | Downloads binary content from the hub
 [**get_config**](SessionApi.md#get_config) | **GET** /sessions/{sessionId}/config | Gets configuration from stash
 [**get_session**](SessionApi.md#get_session) | **GET** /sessions/{sessionId} | Gets hub session info
-[**list_hub_session_blobs**](SessionApi.md#list_hub_session_blobs) | **GET** /sessions/{sessionId}/blobs | Lists currently allocated lobs
+[**list_blobs**](SessionApi.md#list_blobs) | **GET** /sessions/{sessionId}/blobs | Lists currently allocated lobs
 [**list_sessions**](SessionApi.md#list_sessions) | **GET** /sessions | Lists current hub sessions.
 [**set_config**](SessionApi.md#set_config) | **PUT** /sessions/{sessionId}/config | Sets configuration stash
 [**update_deployment**](SessionApi.md#update_deployment) | **PATCH** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | Sends multiple commands for peer
@@ -846,8 +846,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **list_hub_session_blobs**
-> list[BlobInfo] list_hub_session_blobs(session_id)
+# **list_blobs**
+> list[BlobInfo] list_blobs(session_id)
 
 Lists currently allocated lobs
 
@@ -873,10 +873,10 @@ session_id = 56 # int | HUB session id
 
 try:
     # Lists currently allocated lobs
-    api_response = api_instance.list_hub_session_blobs(session_id)
+    api_response = api_instance.list_blobs(session_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SessionApi->list_hub_session_blobs: %s\n" % e)
+    print("Exception when calling SessionApi->list_blobs: %s\n" % e)
 ```
 
 
@@ -900,10 +900,10 @@ session_id = 56 # int | HUB session id
 
 try:
     # Lists currently allocated lobs
-    api_response = api_instance.list_hub_session_blobs(session_id)
+    api_response = api_instance.list_blobs(session_id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling SessionApi->list_hub_session_blobs: %s\n" % e)
+    print("Exception when calling SessionApi->list_blobs: %s\n" % e)
 ```
 
 ### Parameters

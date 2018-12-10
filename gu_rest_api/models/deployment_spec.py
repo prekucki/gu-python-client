@@ -131,7 +131,7 @@ class DeploymentSpec(object):
     def tags(self):
         """Gets the tags of this DeploymentSpec.  # noqa: E501
 
-        peer session tags  # noqa: E501
+        deployment tags  # noqa: E501
 
         :return: The tags of this DeploymentSpec.  # noqa: E501
         :rtype: list[str]
@@ -142,7 +142,7 @@ class DeploymentSpec(object):
     def tags(self, tags):
         """Sets the tags of this DeploymentSpec.
 
-        peer session tags  # noqa: E501
+        deployment tags  # noqa: E501
 
         :param tags: The tags of this DeploymentSpec.  # noqa: E501
         :type: list[str]

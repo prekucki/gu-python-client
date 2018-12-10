@@ -1034,12 +1034,12 @@ class SessionApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def list_hub_session_blobs(self, session_id, **kwargs):  # noqa: E501
+    def list_blobs(self, session_id, **kwargs):  # noqa: E501
         """Lists currently allocated lobs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_hub_session_blobs(session_id, async_req=True)
+        >>> thread = api.list_blobs(session_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -1050,17 +1050,17 @@ class SessionApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.list_hub_session_blobs_with_http_info(session_id, **kwargs)  # noqa: E501
+            return self.list_blobs_with_http_info(session_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.list_hub_session_blobs_with_http_info(session_id, **kwargs)  # noqa: E501
+            (data) = self.list_blobs_with_http_info(session_id, **kwargs)  # noqa: E501
             return data
 
-    def list_hub_session_blobs_with_http_info(self, session_id, **kwargs):  # noqa: E501
+    def list_blobs_with_http_info(self, session_id, **kwargs):  # noqa: E501
         """Lists currently allocated lobs  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_hub_session_blobs_with_http_info(session_id, async_req=True)
+        >>> thread = api.list_blobs_with_http_info(session_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -1082,14 +1082,14 @@ class SessionApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method list_hub_session_blobs" % key
+                    " to method list_blobs" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'session_id' is set
         if ('session_id' not in local_var_params or
                 local_var_params['session_id'] is None):
-            raise ValueError("Missing the required parameter `session_id` when calling `list_hub_session_blobs`")  # noqa: E501
+            raise ValueError("Missing the required parameter `session_id` when calling `list_blobs`")  # noqa: E501
 
         collection_formats = {}
 
