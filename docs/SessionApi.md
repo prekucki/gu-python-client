@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**get_config**](SessionApi.md#get_config) | **GET** /sessions/{sessionId}/config | Gets configuration from stash
 [**get_session**](SessionApi.md#get_session) | **GET** /sessions/{sessionId} | Gets hub session info
 [**list_blobs**](SessionApi.md#list_blobs) | **GET** /sessions/{sessionId}/blobs | Lists currently allocated lobs
+[**list_session_peers**](SessionApi.md#list_session_peers) | **GET** /sessions/{sessionId}/peers | 
 [**list_sessions**](SessionApi.md#list_sessions) | **GET** /sessions | Lists current hub sessions.
 [**set_config**](SessionApi.md#set_config) | **PUT** /sessions/{sessionId}/config | Sets configuration stash
 [**update_deployment**](SessionApi.md#update_deployment) | **PATCH** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | Sends multiple commands for peer
@@ -915,6 +916,85 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**list[BlobInfo]**](BlobInfo.md)
+
+### Authorization
+
+[serviceToken](../README.md#serviceToken), [systemName](../README.md#systemName)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_session_peers**
+> list[PeerInfo] list_session_peers(session_id)
+
+
+
+### Example
+
+* Api Key Authentication (serviceToken): 
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: serviceToken
+configuration = gu_rest_api.Configuration()
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
+session_id = 56 # int | HUB session id
+
+try:
+    api_response = api_instance.list_session_peers(session_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SessionApi->list_session_peers: %s\n" % e)
+```
+
+
+* Api Key Authentication (systemName): 
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: systemName
+configuration = gu_rest_api.Configuration()
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
+session_id = 56 # int | HUB session id
+
+try:
+    api_response = api_instance.list_session_peers(session_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SessionApi->list_session_peers: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **session_id** | **int**| HUB session id | 
+
+### Return type
+
+[**list[PeerInfo]**](PeerInfo.md)
 
 ### Authorization
 

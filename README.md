@@ -96,6 +96,7 @@ Class | Method | HTTP request | Description
 *SessionApi* | [**get_config**](docs/SessionApi.md#get_config) | **GET** /sessions/{sessionId}/config | Gets configuration from stash
 *SessionApi* | [**get_session**](docs/SessionApi.md#get_session) | **GET** /sessions/{sessionId} | Gets hub session info
 *SessionApi* | [**list_blobs**](docs/SessionApi.md#list_blobs) | **GET** /sessions/{sessionId}/blobs | Lists currently allocated lobs
+*SessionApi* | [**list_session_peers**](docs/SessionApi.md#list_session_peers) | **GET** /sessions/{sessionId}/peers | 
 *SessionApi* | [**list_sessions**](docs/SessionApi.md#list_sessions) | **GET** /sessions | Lists current hub sessions.
 *SessionApi* | [**set_config**](docs/SessionApi.md#set_config) | **PUT** /sessions/{sessionId}/config | Sets configuration stash
 *SessionApi* | [**update_deployment**](docs/SessionApi.md#update_deployment) | **PATCH** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | Sends multiple commands for peer
