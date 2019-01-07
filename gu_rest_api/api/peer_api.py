@@ -421,3 +421,111 @@ class PeerApi(object):
             _preload_content=local_var_params.get('_preload_content', True),
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
+
+    def update_deployment(self, node_id, deployment_id, **kwargs):  # noqa: E501
+        """update_deployment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_deployment(node_id, deployment_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str node_id: GU Network node identifier (required)
+        :param str deployment_id: (required)
+        :param list[Command] command:
+        :return: list[str]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async_req'):
+            return self.update_deployment_with_http_info(node_id, deployment_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_deployment_with_http_info(node_id, deployment_id, **kwargs)  # noqa: E501
+            return data
+
+    def update_deployment_with_http_info(self, node_id, deployment_id, **kwargs):  # noqa: E501
+        """update_deployment  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.update_deployment_with_http_info(node_id, deployment_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool
+        :param str node_id: GU Network node identifier (required)
+        :param str deployment_id: (required)
+        :param list[Command] command:
+        :return: list[str]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['node_id', 'deployment_id', 'command']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_deployment" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'node_id' is set
+        if ('node_id' not in local_var_params or
+                local_var_params['node_id'] is None):
+            raise ValueError("Missing the required parameter `node_id` when calling `update_deployment`")  # noqa: E501
+        # verify the required parameter 'deployment_id' is set
+        if ('deployment_id' not in local_var_params or
+                local_var_params['deployment_id'] is None):
+            raise ValueError("Missing the required parameter `deployment_id` when calling `update_deployment`")  # noqa: E501
+
+        if 'node_id' in local_var_params and not re.search(r'0x[0-9a-f]{40}', local_var_params['node_id']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `node_id` when calling `update_deployment`, must conform to the pattern `/0x[0-9a-f]{40}/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'node_id' in local_var_params:
+            path_params['nodeId'] = local_var_params['node_id']  # noqa: E501
+        if 'deployment_id' in local_var_params:
+            path_params['deploymentId'] = local_var_params['deployment_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'command' in local_var_params:
+            body_params = local_var_params['command']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['*/*'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['serviceToken', 'systemName']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/peers/{nodeId}/deployments/{deploymentId}', 'PATCH',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[str]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)

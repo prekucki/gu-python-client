@@ -85,18 +85,18 @@ Class | Method | HTTP request | Description
 *PeerApi* | [**get_peer_details**](docs/PeerApi.md#get_peer_details) | **GET** /peers/{nodeId} | Returns detailed peer info
 *PeerApi* | [**list_deployments**](docs/PeerApi.md#list_deployments) | **GET** /peers/{nodeId}/deployments | 
 *PeerApi* | [**list_peers**](docs/PeerApi.md#list_peers) | **GET** /peers | Returns a list hub peers.
+*PeerApi* | [**update_deployment**](docs/PeerApi.md#update_deployment) | **PATCH** /peers/{nodeId}/deployments/{deploymentId} | 
 *SessionApi* | [**add_session_peers**](docs/SessionApi.md#add_session_peers) | **POST** /sessions/{sessionId}/peers | Manually adds peers to hub session
 *SessionApi* | [**create_blob**](docs/SessionApi.md#create_blob) | **POST** /sessions/{sessionId}/blobs | Creates new lob
-*SessionApi* | [**create_deploymnet**](docs/SessionApi.md#create_deploymnet) | **POST** /sessions/{sessionId}/peers/{nodeId}/deployments | Creates new deploymnet
+*SessionApi* | [**create_deployment**](docs/SessionApi.md#create_deployment) | **POST** /sessions/{sessionId}/peers/{nodeId}/deployments | Creates new deployment
 *SessionApi* | [**create_session**](docs/SessionApi.md#create_session) | **POST** /sessions | Creates new hub session.
 *SessionApi* | [**delete_blob**](docs/SessionApi.md#delete_blob) | **DELETE** /sessions/{sessionId}/blobs/{blobId} | 
-*SessionApi* | [**delete_deploymnet**](docs/SessionApi.md#delete_deploymnet) | **DELETE** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | 
+*SessionApi* | [**delete_deployment**](docs/SessionApi.md#delete_deployment) | **DELETE** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | 
 *SessionApi* | [**delete_session**](docs/SessionApi.md#delete_session) | **DELETE** /sessions/{sessionId} | 
 *SessionApi* | [**download_blob**](docs/SessionApi.md#download_blob) | **GET** /sessions/{sessionId}/blobs/{blobId} | Downloads binary content from the hub
 *SessionApi* | [**get_config**](docs/SessionApi.md#get_config) | **GET** /sessions/{sessionId}/config | Gets configuration from stash
 *SessionApi* | [**get_session**](docs/SessionApi.md#get_session) | **GET** /sessions/{sessionId} | Gets hub session info
 *SessionApi* | [**list_blobs**](docs/SessionApi.md#list_blobs) | **GET** /sessions/{sessionId}/blobs | Lists currently allocated lobs
-*SessionApi* | [**list_session_peers**](docs/SessionApi.md#list_session_peers) | **GET** /sessions/{sessionId}/peers | 
 *SessionApi* | [**list_sessions**](docs/SessionApi.md#list_sessions) | **GET** /sessions | Lists current hub sessions.
 *SessionApi* | [**set_config**](docs/SessionApi.md#set_config) | **PUT** /sessions/{sessionId}/config | Sets configuration stash
 *SessionApi* | [**update_deployment**](docs/SessionApi.md#update_deployment) | **PATCH** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | Sends multiple commands for peer

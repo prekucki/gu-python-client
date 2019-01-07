@@ -236,12 +236,12 @@ class SessionApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_deploymnet(self, session_id, node_id, deployment_spec, **kwargs):  # noqa: E501
-        """Creates new deploymnet  # noqa: E501
+    def create_deployment(self, session_id, node_id, deployment_spec, **kwargs):  # noqa: E501
+        """Creates new deployment  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_deploymnet(session_id, node_id, deployment_spec, async_req=True)
+        >>> thread = api.create_deployment(session_id, node_id, deployment_spec, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -254,17 +254,17 @@ class SessionApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_deploymnet_with_http_info(session_id, node_id, deployment_spec, **kwargs)  # noqa: E501
+            return self.create_deployment_with_http_info(session_id, node_id, deployment_spec, **kwargs)  # noqa: E501
         else:
-            (data) = self.create_deploymnet_with_http_info(session_id, node_id, deployment_spec, **kwargs)  # noqa: E501
+            (data) = self.create_deployment_with_http_info(session_id, node_id, deployment_spec, **kwargs)  # noqa: E501
             return data
 
-    def create_deploymnet_with_http_info(self, session_id, node_id, deployment_spec, **kwargs):  # noqa: E501
-        """Creates new deploymnet  # noqa: E501
+    def create_deployment_with_http_info(self, session_id, node_id, deployment_spec, **kwargs):  # noqa: E501
+        """Creates new deployment  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_deploymnet_with_http_info(session_id, node_id, deployment_spec, async_req=True)
+        >>> thread = api.create_deployment_with_http_info(session_id, node_id, deployment_spec, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -288,25 +288,25 @@ class SessionApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_deploymnet" % key
+                    " to method create_deployment" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'session_id' is set
         if ('session_id' not in local_var_params or
                 local_var_params['session_id'] is None):
-            raise ValueError("Missing the required parameter `session_id` when calling `create_deploymnet`")  # noqa: E501
+            raise ValueError("Missing the required parameter `session_id` when calling `create_deployment`")  # noqa: E501
         # verify the required parameter 'node_id' is set
         if ('node_id' not in local_var_params or
                 local_var_params['node_id'] is None):
-            raise ValueError("Missing the required parameter `node_id` when calling `create_deploymnet`")  # noqa: E501
+            raise ValueError("Missing the required parameter `node_id` when calling `create_deployment`")  # noqa: E501
         # verify the required parameter 'deployment_spec' is set
         if ('deployment_spec' not in local_var_params or
                 local_var_params['deployment_spec'] is None):
-            raise ValueError("Missing the required parameter `deployment_spec` when calling `create_deploymnet`")  # noqa: E501
+            raise ValueError("Missing the required parameter `deployment_spec` when calling `create_deployment`")  # noqa: E501
 
         if 'node_id' in local_var_params and not re.search(r'0x[0-9a-f]{40}', local_var_params['node_id']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `node_id` when calling `create_deploymnet`, must conform to the pattern `/0x[0-9a-f]{40}/`")  # noqa: E501
+            raise ValueError("Invalid value for parameter `node_id` when calling `create_deployment`, must conform to the pattern `/0x[0-9a-f]{40}/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -546,12 +546,12 @@ class SessionApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_deploymnet(self, session_id, node_id, deployment_id, **kwargs):  # noqa: E501
-        """delete_deploymnet  # noqa: E501
+    def delete_deployment(self, session_id, node_id, deployment_id, **kwargs):  # noqa: E501
+        """delete_deployment  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_deploymnet(session_id, node_id, deployment_id, async_req=True)
+        >>> thread = api.delete_deployment(session_id, node_id, deployment_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -564,17 +564,17 @@ class SessionApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.delete_deploymnet_with_http_info(session_id, node_id, deployment_id, **kwargs)  # noqa: E501
+            return self.delete_deployment_with_http_info(session_id, node_id, deployment_id, **kwargs)  # noqa: E501
         else:
-            (data) = self.delete_deploymnet_with_http_info(session_id, node_id, deployment_id, **kwargs)  # noqa: E501
+            (data) = self.delete_deployment_with_http_info(session_id, node_id, deployment_id, **kwargs)  # noqa: E501
             return data
 
-    def delete_deploymnet_with_http_info(self, session_id, node_id, deployment_id, **kwargs):  # noqa: E501
-        """delete_deploymnet  # noqa: E501
+    def delete_deployment_with_http_info(self, session_id, node_id, deployment_id, **kwargs):  # noqa: E501
+        """delete_deployment  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.delete_deploymnet_with_http_info(session_id, node_id, deployment_id, async_req=True)
+        >>> thread = api.delete_deployment_with_http_info(session_id, node_id, deployment_id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
@@ -598,25 +598,25 @@ class SessionApi(object):
             if key not in all_params:
                 raise TypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method delete_deploymnet" % key
+                    " to method delete_deployment" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'session_id' is set
         if ('session_id' not in local_var_params or
                 local_var_params['session_id'] is None):
-            raise ValueError("Missing the required parameter `session_id` when calling `delete_deploymnet`")  # noqa: E501
+            raise ValueError("Missing the required parameter `session_id` when calling `delete_deployment`")  # noqa: E501
         # verify the required parameter 'node_id' is set
         if ('node_id' not in local_var_params or
                 local_var_params['node_id'] is None):
-            raise ValueError("Missing the required parameter `node_id` when calling `delete_deploymnet`")  # noqa: E501
+            raise ValueError("Missing the required parameter `node_id` when calling `delete_deployment`")  # noqa: E501
         # verify the required parameter 'deployment_id' is set
         if ('deployment_id' not in local_var_params or
                 local_var_params['deployment_id'] is None):
-            raise ValueError("Missing the required parameter `deployment_id` when calling `delete_deploymnet`")  # noqa: E501
+            raise ValueError("Missing the required parameter `deployment_id` when calling `delete_deployment`")  # noqa: E501
 
         if 'node_id' in local_var_params and not re.search(r'0x[0-9a-f]{40}', local_var_params['node_id']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `node_id` when calling `delete_deploymnet`, must conform to the pattern `/0x[0-9a-f]{40}/`")  # noqa: E501
+            raise ValueError("Invalid value for parameter `node_id` when calling `delete_deployment`, must conform to the pattern `/0x[0-9a-f]{40}/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -1121,100 +1121,6 @@ class SessionApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='list[BlobInfo]',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def list_session_peers(self, session_id, **kwargs):  # noqa: E501
-        """list_session_peers  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_session_peers(session_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int session_id: HUB session id (required)
-        :return: list[PeerInfo]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.list_session_peers_with_http_info(session_id, **kwargs)  # noqa: E501
-        else:
-            (data) = self.list_session_peers_with_http_info(session_id, **kwargs)  # noqa: E501
-            return data
-
-    def list_session_peers_with_http_info(self, session_id, **kwargs):  # noqa: E501
-        """list_session_peers  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.list_session_peers_with_http_info(session_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool
-        :param int session_id: HUB session id (required)
-        :return: list[PeerInfo]
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['session_id']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method list_session_peers" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'session_id' is set
-        if ('session_id' not in local_var_params or
-                local_var_params['session_id'] is None):
-            raise ValueError("Missing the required parameter `session_id` when calling `list_session_peers`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        if 'session_id' in local_var_params:
-            path_params['sessionId'] = local_var_params['session_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['*/*'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['serviceToken', 'systemName']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/sessions/{sessionId}/peers', 'GET',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='list[PeerInfo]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
