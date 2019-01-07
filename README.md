@@ -116,6 +116,7 @@ Class | Method | HTTP request | Description
  - [DownloadFileCommand](docs/DownloadFileCommand.md)
  - [EnvType](docs/EnvType.md)
  - [ExecCommand](docs/ExecCommand.md)
+ - [FileFormat](docs/FileFormat.md)
  - [HubSession](docs/HubSession.md)
  - [HubSessionCommand](docs/HubSessionCommand.md)
  - [HubSessionTouchCommand](docs/HubSessionTouchCommand.md)

@@ -32,25 +32,30 @@ class DownloadFileCommand(object):
     """
     openapi_types = {
         'uri': 'str',
-        'file_path': 'str'
+        'file_path': 'str',
+        'format': 'FileFormat'
     }
 
     attribute_map = {
         'uri': 'uri',
-        'file_path': 'filePath'
+        'file_path': 'filePath',
+        'format': 'format'
     }
 
-    def __init__(self, uri=None, file_path=None):  # noqa: E501
+    def __init__(self, uri=None, file_path=None, format=None):  # noqa: E501
         """DownloadFileCommand - a model defined in OpenAPI"""  # noqa: E501
 
         self._uri = None
         self._file_path = None
+        self._format = None
         self.discriminator = None
 
         if uri is not None:
             self.uri = uri
         if file_path is not None:
             self.file_path = file_path
+        if format is not None:
+            self.format = format
 
     @property
     def uri(self):
@@ -93,6 +98,27 @@ class DownloadFileCommand(object):
         """
 
         self._file_path = file_path
+
+    @property
+    def format(self):
+        """Gets the format of this DownloadFileCommand.  # noqa: E501
+
+
+        :return: The format of this DownloadFileCommand.  # noqa: E501
+        :rtype: FileFormat
+        """
+        return self._format
+
+    @format.setter
+    def format(self, format):
+        """Sets the format of this DownloadFileCommand.
+
+
+        :param format: The format of this DownloadFileCommand.  # noqa: E501
+        :type: FileFormat
+        """
+
+        self._format = format
 
     def to_dict(self):
         """Returns the model properties as a dict"""
