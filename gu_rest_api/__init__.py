@@ -17,6 +17,7 @@ from __future__ import absolute_import
 __version__ = "1.0.0"
 
 # import apis into sdk package
+from gu_rest_api.api.default_api import DefaultApi
 from gu_rest_api.api.peer_api import PeerApi
 from gu_rest_api.api.session_api import SessionApi
 

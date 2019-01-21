@@ -63,15 +63,15 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
+api_instance = gu_rest_api.DefaultApi(gu_rest_api.ApiClient(configuration))
 node_id = 'node_id_example' # str | GU Network node identifier
-deployment_spec = gu_rest_api.DeploymentSpec() # DeploymentSpec | 
+deployment_id = 'deployment_id_example' # str | 
 
 try:
-    api_response = api_instance.create_deployment(node_id, deployment_spec)
-    pprint(api_response)
+    # Removes deployment
+    api_instance.drop_deployment(node_id, deployment_id)
 except ApiException as e:
-    print("Exception when calling PeerApi->create_deployment: %s\n" % e)
+    print("Exception when calling DefaultApi->drop_deployment: %s\n" % e)
 
 ```
 
@@ -81,6 +81,7 @@ All URIs are relative to *http://127.0.0.1:61622*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*DefaultApi* | [**drop_deployment**](docs/DefaultApi.md#drop_deployment) | **DELETE** /peers/{nodeId}/deployments/{deploymentId} | Removes deployment
 *PeerApi* | [**create_deployment**](docs/PeerApi.md#create_deployment) | **POST** /peers/{nodeId}/deployments | 
 *PeerApi* | [**get_peer_details**](docs/PeerApi.md#get_peer_details) | **GET** /peers/{nodeId} | Returns detailed peer info
 *PeerApi* | [**list_deployments**](docs/PeerApi.md#list_deployments) | **GET** /peers/{nodeId}/deployments | 
@@ -97,6 +98,7 @@ Class | Method | HTTP request | Description
 *SessionApi* | [**get_config**](docs/SessionApi.md#get_config) | **GET** /sessions/{sessionId}/config | Gets configuration from stash
 *SessionApi* | [**get_session**](docs/SessionApi.md#get_session) | **GET** /sessions/{sessionId} | Gets hub session info
 *SessionApi* | [**list_blobs**](docs/SessionApi.md#list_blobs) | **GET** /sessions/{sessionId}/blobs | Lists currently allocated lobs
+*SessionApi* | [**list_session_peers**](docs/SessionApi.md#list_session_peers) | **GET** /sessions/{sessionId}/peers | List session peers
 *SessionApi* | [**list_sessions**](docs/SessionApi.md#list_sessions) | **GET** /sessions | Lists current hub sessions.
 *SessionApi* | [**set_config**](docs/SessionApi.md#set_config) | **PUT** /sessions/{sessionId}/config | Sets configuration stash
 *SessionApi* | [**update_deployment**](docs/SessionApi.md#update_deployment) | **PATCH** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | Sends multiple commands for peer
