@@ -63,15 +63,15 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = gu_rest_api.DefaultApi(gu_rest_api.ApiClient(configuration))
+api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
 node_id = 'node_id_example' # str | GU Network node identifier
-deployment_id = 'deployment_id_example' # str | 
+deployment_spec = gu_rest_api.DeploymentSpec() # DeploymentSpec | 
 
 try:
-    # Removes deployment
-    api_instance.drop_deployment(node_id, deployment_id)
+    api_response = api_instance.create_deployment(node_id, deployment_spec)
+    pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->drop_deployment: %s\n" % e)
+    print("Exception when calling PeerApi->create_deployment: %s\n" % e)
 
 ```
 
@@ -81,8 +81,8 @@ All URIs are relative to *http://127.0.0.1:61622*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**drop_deployment**](docs/DefaultApi.md#drop_deployment) | **DELETE** /peers/{nodeId}/deployments/{deploymentId} | Removes deployment
 *PeerApi* | [**create_deployment**](docs/PeerApi.md#create_deployment) | **POST** /peers/{nodeId}/deployments | 
+*PeerApi* | [**drop_deployment**](docs/PeerApi.md#drop_deployment) | **DELETE** /peers/{nodeId}/deployments/{deploymentId} | Removes deployment
 *PeerApi* | [**get_peer_details**](docs/PeerApi.md#get_peer_details) | **GET** /peers/{nodeId} | Returns detailed peer info
 *PeerApi* | [**list_deployments**](docs/PeerApi.md#list_deployments) | **GET** /peers/{nodeId}/deployments | 
 *PeerApi* | [**list_peers**](docs/PeerApi.md#list_peers) | **GET** /peers | Returns a list hub peers.
