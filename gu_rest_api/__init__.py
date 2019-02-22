@@ -26,7 +26,6 @@ from gu_rest_api.configuration import Configuration
 # import models into sdk package
 from gu_rest_api.models.blob_info import BlobInfo
 from gu_rest_api.models.command import Command
-from gu_rest_api.models.config_stash import ConfigStash
 from gu_rest_api.models.deployment_info import DeploymentInfo
 from gu_rest_api.models.deployment_spec import DeploymentSpec
 from gu_rest_api.models.deployment_spec_image import DeploymentSpecImage

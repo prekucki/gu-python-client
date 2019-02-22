@@ -110,7 +110,6 @@ Class | Method | HTTP request | Description
 
  - [BlobInfo](docs/BlobInfo.md)
  - [Command](docs/Command.md)
- - [ConfigStash](docs/ConfigStash.md)
  - [DeploymentInfo](docs/DeploymentInfo.md)
  - [DeploymentSpec](docs/DeploymentSpec.md)
  - [DeploymentSpecImage](docs/DeploymentSpecImage.md)
