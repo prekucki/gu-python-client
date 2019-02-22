@@ -417,7 +417,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
-blob_id = 'blob_id_example' # str | Blob identifier
+blob_id = 56 # int | Blob identifier
 
 try:
     api_instance.delete_blob(session_id, blob_id)
@@ -446,7 +446,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
-blob_id = 'blob_id_example' # str | Blob identifier
+blob_id = 56 # int | Blob identifier
 
 try:
     api_instance.delete_blob(session_id, blob_id)
@@ -459,7 +459,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **session_id** | **int**| HUB session id | 
- **blob_id** | **str**| Blob identifier | 
+ **blob_id** | **int**| Blob identifier | 
 
 ### Return type
 
@@ -678,7 +678,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
-blob_id = 'blob_id_example' # str | Blob identifier
+blob_id = 56 # int | Blob identifier
 
 try:
     # Downloads binary content from the hub
@@ -709,7 +709,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
-blob_id = 'blob_id_example' # str | Blob identifier
+blob_id = 56 # int | Blob identifier
 
 try:
     # Downloads binary content from the hub
@@ -724,7 +724,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **session_id** | **int**| HUB session id | 
- **blob_id** | **str**| Blob identifier | 
+ **blob_id** | **int**| Blob identifier | 
 
 ### Return type
 
@@ -1487,7 +1487,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
-blob_id = 'blob_id_example' # str | Blob identifier
+blob_id = 56 # int | Blob identifier
 body = '/path/to/file' # file |  (optional)
 
 try:
@@ -1518,7 +1518,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
-blob_id = 'blob_id_example' # str | Blob identifier
+blob_id = 56 # int | Blob identifier
 body = '/path/to/file' # file |  (optional)
 
 try:
@@ -1533,7 +1533,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **session_id** | **int**| HUB session id | 
- **blob_id** | **str**| Blob identifier | 
+ **blob_id** | **int**| Blob identifier | 
  **body** | **file**|  | [optional] 
 
 ### Return type

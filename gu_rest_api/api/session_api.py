@@ -458,7 +458,7 @@ class SessionApi(object):
 
         :param async_req bool
         :param int session_id: HUB session id (required)
-        :param str blob_id: Blob identifier (required)
+        :param int blob_id: Blob identifier (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -480,7 +480,7 @@ class SessionApi(object):
 
         :param async_req bool
         :param int session_id: HUB session id (required)
-        :param str blob_id: Blob identifier (required)
+        :param int blob_id: Blob identifier (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -754,7 +754,7 @@ class SessionApi(object):
 
         :param async_req bool
         :param int session_id: HUB session id (required)
-        :param str blob_id: Blob identifier (required)
+        :param int blob_id: Blob identifier (required)
         :return: file
                  If the method is called asynchronously,
                  returns the request thread.
@@ -776,7 +776,7 @@ class SessionApi(object):
 
         :param async_req bool
         :param int session_id: HUB session id (required)
-        :param str blob_id: Blob identifier (required)
+        :param int blob_id: Blob identifier (required)
         :return: file
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1646,7 +1646,7 @@ class SessionApi(object):
 
         :param async_req bool
         :param int session_id: HUB session id (required)
-        :param str blob_id: Blob identifier (required)
+        :param int blob_id: Blob identifier (required)
         :param file body:
         :return: None
                  If the method is called asynchronously,
@@ -1669,7 +1669,7 @@ class SessionApi(object):
 
         :param async_req bool
         :param int session_id: HUB session id (required)
-        :param str blob_id: Blob identifier (required)
+        :param int blob_id: Blob identifier (required)
         :param file body:
         :return: None
                  If the method is called asynchronously,
