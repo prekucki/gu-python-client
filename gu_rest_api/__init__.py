@@ -19,7 +19,7 @@ __version__ = "1.0.0"
 # import apis into sdk package
 from gu_rest_api.api.peer_api import PeerApi
 from gu_rest_api.api.session_api import SessionApi
-
+from gu_rest_api.driver import Driver
 # import ApiClient
 from gu_rest_api.api_client import ApiClient
 from gu_rest_api.configuration import Configuration
