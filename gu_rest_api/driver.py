@@ -17,7 +17,7 @@ class Driver(object):
 
     def session(self, name=None, tags=None, expires=None, allocation=None, ):
         sessionSpec = gu_rest_api.HubSession(name=name, expires=expires, allocation=allocation, tags=tags)
-        session_id = self.api_instance.create_session(hub_session=sessionSpec)
+        session_id = self.api_instance.create_session(sessionSpec)
         return Session(self.client, session_id)
 
     def session_from_id(self, session_id):
