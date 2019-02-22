@@ -1,9 +1,5 @@
-from __future__ import print_function
-import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
-from pprint import pprint
-from pathlib import Path
 
 
 class Driver(object):
@@ -126,7 +122,7 @@ class Deployment(object):
         return Commands(self)
 
     def send_commands(self, commands):
-        return self.peer_api.update_deployment(self.node_id, self.deploymnet_id, command= commands)
+        return self.peer_api.update_deployment(self.node_id, self.deploymnet_id, commands= commands)
 
     def __enter__(self):
         self._open = True
