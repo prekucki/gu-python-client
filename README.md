@@ -51,13 +51,13 @@ import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -65,10 +65,10 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
 node_id = 'node_id_example' # str | GU Network node identifier
-deployment_spec = gu_rest_api.DeploymentSpec() # DeploymentSpec | 
+spec = gu_rest_api.DeploymentSpec() # DeploymentSpec | 
 
 try:
-    api_response = api_instance.create_deployment(node_id, deployment_spec)
+    api_response = api_instance.create_deployment(node_id, spec)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PeerApi->create_deployment: %s\n" % e)
@@ -124,7 +124,6 @@ Class | Method | HTTP request | Description
  - [HubSessionTouchCommand](docs/HubSessionTouchCommand.md)
  - [PeerDetails](docs/PeerDetails.md)
  - [PeerInfo](docs/PeerInfo.md)
- - [ProcessCollection](docs/ProcessCollection.md)
  - [ProcessInfo](docs/ProcessInfo.md)
  - [StartCommand](docs/StartCommand.md)
  - [StopCommand](docs/StopCommand.md)
@@ -139,6 +138,7 @@ Class | Method | HTTP request | Description
 - **Type**: API key
 - **API key parameter name**: X-GU-APIKEY
 - **Location**: HTTP header
+
 
 ## systemName
 

@@ -46,7 +46,7 @@ class PeerDetails(object):
         'sessions': 'sessions'
     }
 
-    def __init__(self, node_name=None, peer_addr=None, node_id=None, tags=None, sessions=None):  # noqa: E501
+    def __init__(self, node_name=None, peer_addr=None, node_id='0x875f272d3b9e7b55a5784a131a60bf3d7a42c73c', tags=None, sessions=None):  # noqa: E501
         """PeerDetails - a model defined in OpenAPI"""  # noqa: E501
 
         self._node_name = None

@@ -31,14 +31,44 @@ class ConfigStash(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'version': 'int'
     }
 
     attribute_map = {
+        'version': 'version'
     }
 
-    def __init__(self):  # noqa: E501
+    def __init__(self, version=None):  # noqa: E501
         """ConfigStash - a model defined in OpenAPI"""  # noqa: E501
+
+        self._version = None
         self.discriminator = None
+
+        if version is not None:
+            self.version = version
+
+    @property
+    def version(self):
+        """Gets the version of this ConfigStash.  # noqa: E501
+
+        Version number  # noqa: E501
+
+        :return: The version of this ConfigStash.  # noqa: E501
+        :rtype: int
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this ConfigStash.
+
+        Version number  # noqa: E501
+
+        :param version: The version of this ConfigStash.  # noqa: E501
+        :type: int
+        """
+
+        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""

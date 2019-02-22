@@ -48,7 +48,7 @@ class HubSession(object):
         'tags': 'tags'
     }
 
-    def __init__(self, id=None, created=None, expires=None, allocation=None, name=None, tags=None):  # noqa: E501
+    def __init__(self, id='47f1dc88-0282-4ac3-f765-02b303e8c278', created=None, expires=None, allocation=None, name=None, tags=None):  # noqa: E501
         """HubSession - a model defined in OpenAPI"""  # noqa: E501
 
         self._id = None

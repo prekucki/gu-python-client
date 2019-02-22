@@ -49,7 +49,7 @@ class HubSessionCommand(object):
 
         self._command_type = None
         self._ts = None
-        self.discriminator = 'commandType'
+        self.discriminator = 'command_type'
 
         self.command_type = command_type
         if ts is not None:
@@ -101,7 +101,8 @@ class HubSessionCommand(object):
 
     def get_real_child_model(self, data):
         """Returns the real base class specified by the discriminator"""
-        discriminator_value = data[self.discriminator]
+        discriminator_key = self.attribute_map[self.discriminator]
+        discriminator_value = data[discriminator_key]
         return self.discriminator_value_class_map.get(discriminator_value)
 
     def to_dict(self):

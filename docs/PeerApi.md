@@ -13,49 +13,26 @@ Method | HTTP request | Description
 
 
 # **create_deployment**
-> str create_deployment(node_id, deployment_spec)
+> str create_deployment(node_id, spec)
 
 
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
-node_id = 'node_id_example' # str | GU Network node identifier
-deployment_spec = gu_rest_api.DeploymentSpec() # DeploymentSpec | 
-
-try:
-    api_response = api_instance.create_deployment(node_id, deployment_spec)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PeerApi->create_deployment: %s\n" % e)
-```
-
-
-* Api Key Authentication (systemName): 
-```python
-from __future__ import print_function
-import time
-import gu_rest_api
-from gu_rest_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -63,10 +40,40 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
 node_id = 'node_id_example' # str | GU Network node identifier
-deployment_spec = gu_rest_api.DeploymentSpec() # DeploymentSpec | 
+spec = gu_rest_api.DeploymentSpec() # DeploymentSpec | 
 
 try:
-    api_response = api_instance.create_deployment(node_id, deployment_spec)
+    api_response = api_instance.create_deployment(node_id, spec)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PeerApi->create_deployment: %s\n" % e)
+```
+
+* Api Key Authentication (systemName):
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
+node_id = 'node_id_example' # str | GU Network node identifier
+spec = gu_rest_api.DeploymentSpec() # DeploymentSpec | 
+
+try:
+    api_response = api_instance.create_deployment(node_id, spec)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PeerApi->create_deployment: %s\n" % e)
@@ -77,7 +84,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **node_id** | **str**| GU Network node identifier | 
- **deployment_spec** | [**DeploymentSpec**](DeploymentSpec.md)|  | 
+ **spec** | [**DeploymentSpec**](DeploymentSpec.md)|  | 
 
 ### Return type
 
@@ -101,19 +108,23 @@ Removes deployment
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
@@ -127,17 +138,20 @@ except ApiException as e:
     print("Exception when calling PeerApi->drop_deployment: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -183,19 +197,23 @@ Returns detailed peer info
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
@@ -209,17 +227,20 @@ except ApiException as e:
     print("Exception when calling PeerApi->get_peer_details: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -264,19 +285,23 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
@@ -289,17 +314,20 @@ except ApiException as e:
     print("Exception when calling PeerApi->list_deployments: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -343,19 +371,23 @@ Returns a list hub peers.
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
@@ -370,17 +402,20 @@ except ApiException as e:
     print("Exception when calling PeerApi->list_peers: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -421,50 +456,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_deployment**
-> list[str] update_deployment(node_id, deployment_id, command=command)
+> list[str] update_deployment(node_id, deployment_id, commands=commands)
 
 
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
-node_id = 'node_id_example' # str | GU Network node identifier
-deployment_id = 'deployment_id_example' # str | 
-command = NULL # list[Command] |  (optional)
-
-try:
-    api_response = api_instance.update_deployment(node_id, deployment_id, command=command)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PeerApi->update_deployment: %s\n" % e)
-```
-
-
-* Api Key Authentication (systemName): 
-```python
-from __future__ import print_function
-import time
-import gu_rest_api
-from gu_rest_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -473,10 +484,41 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
 node_id = 'node_id_example' # str | GU Network node identifier
 deployment_id = 'deployment_id_example' # str | 
-command = NULL # list[Command] |  (optional)
+commands = NULL # list[Command] |  (optional)
 
 try:
-    api_response = api_instance.update_deployment(node_id, deployment_id, command=command)
+    api_response = api_instance.update_deployment(node_id, deployment_id, commands=commands)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PeerApi->update_deployment: %s\n" % e)
+```
+
+* Api Key Authentication (systemName):
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
+node_id = 'node_id_example' # str | GU Network node identifier
+deployment_id = 'deployment_id_example' # str | 
+commands = NULL # list[Command] |  (optional)
+
+try:
+    api_response = api_instance.update_deployment(node_id, deployment_id, commands=commands)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PeerApi->update_deployment: %s\n" % e)
@@ -488,7 +530,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **node_id** | **str**| GU Network node identifier | 
  **deployment_id** | **str**|  | 
- **command** | [**list[Command]**](list.md)|  | [optional] 
+ **commands** | [**list[Command]**](list.md)|  | [optional] 
 
 ### Return type
 

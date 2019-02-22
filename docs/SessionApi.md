@@ -24,50 +24,26 @@ Method | HTTP request | Description
 
 
 # **add_session_peers**
-> list[str] add_session_peers(session_id, request_body)
+> list[str] add_session_peers(session_id, peer_set)
 
 Manually adds peers to hub session
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 56 # int | HUB session id
-request_body = NULL # list[str] | 
-
-try:
-    # Manually adds peers to hub session
-    api_response = api_instance.add_session_peers(session_id, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SessionApi->add_session_peers: %s\n" % e)
-```
-
-
-* Api Key Authentication (systemName): 
-```python
-from __future__ import print_function
-import time
-import gu_rest_api
-from gu_rest_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -75,11 +51,42 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
-request_body = NULL # list[str] | 
+peer_set = NULL # list[str] | 
 
 try:
     # Manually adds peers to hub session
-    api_response = api_instance.add_session_peers(session_id, request_body)
+    api_response = api_instance.add_session_peers(session_id, peer_set)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SessionApi->add_session_peers: %s\n" % e)
+```
+
+* Api Key Authentication (systemName):
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
+session_id = 56 # int | HUB session id
+peer_set = NULL # list[str] | 
+
+try:
+    # Manually adds peers to hub session
+    api_response = api_instance.add_session_peers(session_id, peer_set)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SessionApi->add_session_peers: %s\n" % e)
@@ -90,7 +97,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **session_id** | **int**| HUB session id | 
- **request_body** | [**list[str]**](list.md)|  | 
+ **peer_set** | [**list[str]**](list.md)|  | 
 
 ### Return type
 
@@ -114,19 +121,23 @@ Creates new lob
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
@@ -141,17 +152,20 @@ except ApiException as e:
     print("Exception when calling SessionApi->create_blob: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -198,19 +212,23 @@ Creates new deployment
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
@@ -226,17 +244,20 @@ except ApiException as e:
     print("Exception when calling SessionApi->create_deployment: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -279,7 +300,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_session**
-> int create_session(hub_session)
+> int create_session(body)
 
 Creates new hub session.
 
@@ -287,54 +308,61 @@ Allowed fileds:  * name        - human readable session name * expires     - ses
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
-hub_session = gu_rest_api.HubSession() # HubSession | 
-
-try:
-    # Creates new hub session.
-    api_response = api_instance.create_session(hub_session)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SessionApi->create_session: %s\n" % e)
-```
-
-
-* Api Key Authentication (systemName): 
-```python
-from __future__ import print_function
-import time
-import gu_rest_api
-from gu_rest_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
-hub_session = gu_rest_api.HubSession() # HubSession | 
+body = gu_rest_api.HubSession() # HubSession | 
 
 try:
     # Creates new hub session.
-    api_response = api_instance.create_session(hub_session)
+    api_response = api_instance.create_session(body)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SessionApi->create_session: %s\n" % e)
+```
+
+* Api Key Authentication (systemName):
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
+body = gu_rest_api.HubSession() # HubSession | 
+
+try:
+    # Creates new hub session.
+    api_response = api_instance.create_session(body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SessionApi->create_session: %s\n" % e)
@@ -344,7 +372,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **hub_session** | [**HubSession**](HubSession.md)|  | 
+ **body** | [**HubSession**](HubSession.md)|  | 
 
 ### Return type
 
@@ -368,19 +396,23 @@ Name | Type | Description  | Notes
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
@@ -393,17 +425,20 @@ except ApiException as e:
     print("Exception when calling SessionApi->delete_blob: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -448,19 +483,23 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
@@ -474,17 +513,20 @@ except ApiException as e:
     print("Exception when calling SessionApi->delete_deployment: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -531,19 +573,23 @@ void (empty response body)
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
@@ -555,17 +601,20 @@ except ApiException as e:
     print("Exception when calling SessionApi->delete_session: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -608,19 +657,23 @@ Downloads binary content from the hub
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
@@ -635,17 +688,20 @@ except ApiException as e:
     print("Exception when calling SessionApi->download_blob: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -686,25 +742,29 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_config**
-> dict(str, object) get_config(session_id)
+> ConfigStash get_config(session_id)
 
 Gets configuration from stash
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
@@ -718,17 +778,20 @@ except ApiException as e:
     print("Exception when calling SessionApi->get_config: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -753,7 +816,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**dict(str, object)**
+[**ConfigStash**](ConfigStash.md)
 
 ### Authorization
 
@@ -773,19 +836,23 @@ Gets hub session info
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
@@ -799,17 +866,20 @@ except ApiException as e:
     print("Exception when calling SessionApi->get_session: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -854,19 +924,23 @@ Lists currently allocated lobs
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
@@ -880,17 +954,20 @@ except ApiException as e:
     print("Exception when calling SessionApi->list_blobs: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -935,19 +1012,23 @@ List session peers
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
@@ -961,17 +1042,20 @@ except ApiException as e:
     print("Exception when calling SessionApi->list_session_peers: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -1016,19 +1100,23 @@ Lists current hub sessions.
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
@@ -1043,17 +1131,20 @@ except ApiException as e:
     print("Exception when calling SessionApi->list_sessions: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -1094,50 +1185,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **set_config**
-> int set_config(session_id, request_body)
+> int set_config(session_id, config)
 
 Sets configuration stash
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 56 # int | HUB session id
-request_body = NULL # dict(str, object) | New config stash value
-
-try:
-    # Sets configuration stash
-    api_response = api_instance.set_config(session_id, request_body)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SessionApi->set_config: %s\n" % e)
-```
-
-
-* Api Key Authentication (systemName): 
-```python
-from __future__ import print_function
-import time
-import gu_rest_api
-from gu_rest_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -1145,11 +1212,42 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
-request_body = NULL # dict(str, object) | New config stash value
+config = NULL # dict(str, object) | New config stash value
 
 try:
     # Sets configuration stash
-    api_response = api_instance.set_config(session_id, request_body)
+    api_response = api_instance.set_config(session_id, config)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SessionApi->set_config: %s\n" % e)
+```
+
+* Api Key Authentication (systemName):
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
+session_id = 56 # int | HUB session id
+config = NULL # dict(str, object) | New config stash value
+
+try:
+    # Sets configuration stash
+    api_response = api_instance.set_config(session_id, config)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SessionApi->set_config: %s\n" % e)
@@ -1160,7 +1258,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **session_id** | **int**| HUB session id | 
- **request_body** | [**dict(str, object)**](object.md)| New config stash value | 
+ **config** | [**dict(str, object)**](object.md)| New config stash value | 
 
 ### Return type
 
@@ -1178,51 +1276,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_deployment**
-> update_deployment(session_id, node_id, deployment_id, command)
+> update_deployment(session_id, node_id, deployment_id, commands)
 
 Sends multiple commands for peer
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 56 # int | HUB session id
-node_id = 'node_id_example' # str | GU Network node identifier
-deployment_id = 'deployment_id_example' # str | 
-command = NULL # list[Command] | 
-
-try:
-    # Sends multiple commands for peer
-    api_instance.update_deployment(session_id, node_id, deployment_id, command)
-except ApiException as e:
-    print("Exception when calling SessionApi->update_deployment: %s\n" % e)
-```
-
-
-* Api Key Authentication (systemName): 
-```python
-from __future__ import print_function
-import time
-import gu_rest_api
-from gu_rest_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -1232,11 +1305,43 @@ api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
 node_id = 'node_id_example' # str | GU Network node identifier
 deployment_id = 'deployment_id_example' # str | 
-command = NULL # list[Command] | 
+commands = NULL # list[Command] | 
 
 try:
     # Sends multiple commands for peer
-    api_instance.update_deployment(session_id, node_id, deployment_id, command)
+    api_instance.update_deployment(session_id, node_id, deployment_id, commands)
+except ApiException as e:
+    print("Exception when calling SessionApi->update_deployment: %s\n" % e)
+```
+
+* Api Key Authentication (systemName):
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
+session_id = 56 # int | HUB session id
+node_id = 'node_id_example' # str | GU Network node identifier
+deployment_id = 'deployment_id_example' # str | 
+commands = NULL # list[Command] | 
+
+try:
+    # Sends multiple commands for peer
+    api_instance.update_deployment(session_id, node_id, deployment_id, commands)
 except ApiException as e:
     print("Exception when calling SessionApi->update_deployment: %s\n" % e)
 ```
@@ -1248,7 +1353,7 @@ Name | Type | Description  | Notes
  **session_id** | **int**| HUB session id | 
  **node_id** | **str**| GU Network node identifier | 
  **deployment_id** | **str**|  | 
- **command** | [**list[Command]**](list.md)|  | 
+ **commands** | [**list[Command]**](list.md)|  | 
 
 ### Return type
 
@@ -1266,49 +1371,26 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_session**
-> update_session(session_id, hub_session_command=hub_session_command)
+> update_session(session_id, changes=changes)
 
 Hub session update
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
-session_id = 56 # int | HUB session id
-hub_session_command = gu_rest_api.HubSessionCommand() # HubSessionCommand |  (optional)
-
-try:
-    # Hub session update
-    api_instance.update_session(session_id, hub_session_command=hub_session_command)
-except ApiException as e:
-    print("Exception when calling SessionApi->update_session: %s\n" % e)
-```
-
-
-* Api Key Authentication (systemName): 
-```python
-from __future__ import print_function
-import time
-import gu_rest_api
-from gu_rest_api.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
@@ -1316,11 +1398,41 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
-hub_session_command = gu_rest_api.HubSessionCommand() # HubSessionCommand |  (optional)
+changes = gu_rest_api.HubSessionCommand() # HubSessionCommand |  (optional)
 
 try:
     # Hub session update
-    api_instance.update_session(session_id, hub_session_command=hub_session_command)
+    api_instance.update_session(session_id, changes=changes)
+except ApiException as e:
+    print("Exception when calling SessionApi->update_session: %s\n" % e)
+```
+
+* Api Key Authentication (systemName):
+```python
+from __future__ import print_function
+import time
+import gu_rest_api
+from gu_rest_api.rest import ApiException
+from pprint import pprint
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
+session_id = 56 # int | HUB session id
+changes = gu_rest_api.HubSessionCommand() # HubSessionCommand |  (optional)
+
+try:
+    # Hub session update
+    api_instance.update_session(session_id, changes=changes)
 except ApiException as e:
     print("Exception when calling SessionApi->update_session: %s\n" % e)
 ```
@@ -1330,7 +1442,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **session_id** | **int**| HUB session id | 
- **hub_session_command** | [**HubSessionCommand**](HubSessionCommand.md)|  | [optional] 
+ **changes** | [**HubSessionCommand**](HubSessionCommand.md)|  | [optional] 
 
 ### Return type
 
@@ -1354,19 +1466,23 @@ Uploads a binary content to the hub.
 
 ### Example
 
-* Api Key Authentication (serviceToken): 
+* Api Key Authentication (serviceToken):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: serviceToken
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
 configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
+configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
@@ -1381,17 +1497,20 @@ except ApiException as e:
     print("Exception when calling SessionApi->upload_blob: %s\n" % e)
 ```
 
-
-* Api Key Authentication (systemName): 
+* Api Key Authentication (systemName):
 ```python
 from __future__ import print_function
 import time
 import gu_rest_api
 from gu_rest_api.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: systemName
 configuration = gu_rest_api.Configuration()
+# Configure API key authorization: serviceToken
+configuration.api_key['X-GU-APIKEY'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-GU-APIKEY'] = 'Bearer'
+configuration = gu_rest_api.Configuration()
+# Configure API key authorization: systemName
 configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-GU-APPNAME'] = 'Bearer'

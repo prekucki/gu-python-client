@@ -32,39 +32,39 @@ class SessionApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def add_session_peers(self, session_id, request_body, **kwargs):  # noqa: E501
+    def add_session_peers(self, session_id, peer_set, **kwargs):  # noqa: E501
         """Manually adds peers to hub session  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_session_peers(session_id, request_body, async_req=True)
+        >>> thread = api.add_session_peers(session_id, peer_set, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param int session_id: HUB session id (required)
-        :param list[str] request_body: (required)
+        :param list[str] peer_set: (required)
         :return: list[str]
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.add_session_peers_with_http_info(session_id, request_body, **kwargs)  # noqa: E501
+            return self.add_session_peers_with_http_info(session_id, peer_set, **kwargs)  # noqa: E501
         else:
-            (data) = self.add_session_peers_with_http_info(session_id, request_body, **kwargs)  # noqa: E501
+            (data) = self.add_session_peers_with_http_info(session_id, peer_set, **kwargs)  # noqa: E501
             return data
 
-    def add_session_peers_with_http_info(self, session_id, request_body, **kwargs):  # noqa: E501
+    def add_session_peers_with_http_info(self, session_id, peer_set, **kwargs):  # noqa: E501
         """Manually adds peers to hub session  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.add_session_peers_with_http_info(session_id, request_body, async_req=True)
+        >>> thread = api.add_session_peers_with_http_info(session_id, peer_set, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param int session_id: HUB session id (required)
-        :param list[str] request_body: (required)
+        :param list[str] peer_set: (required)
         :return: list[str]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -72,7 +72,7 @@ class SessionApi(object):
 
         local_var_params = locals()
 
-        all_params = ['session_id', 'request_body']  # noqa: E501
+        all_params = ['session_id', 'peer_set']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -90,10 +90,10 @@ class SessionApi(object):
         if ('session_id' not in local_var_params or
                 local_var_params['session_id'] is None):
             raise ValueError("Missing the required parameter `session_id` when calling `add_session_peers`")  # noqa: E501
-        # verify the required parameter 'request_body' is set
-        if ('request_body' not in local_var_params or
-                local_var_params['request_body'] is None):
-            raise ValueError("Missing the required parameter `request_body` when calling `add_session_peers`")  # noqa: E501
+        # verify the required parameter 'peer_set' is set
+        if ('peer_set' not in local_var_params or
+                local_var_params['peer_set'] is None):
+            raise ValueError("Missing the required parameter `peer_set` when calling `add_session_peers`")  # noqa: E501
 
         collection_formats = {}
 
@@ -109,8 +109,8 @@ class SessionApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'request_body' in local_var_params:
-            body_params = local_var_params['request_body']
+        if 'peer_set' in local_var_params:
+            body_params = local_var_params['peer_set']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['*/*'])  # noqa: E501
@@ -348,39 +348,39 @@ class SessionApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_session(self, hub_session, **kwargs):  # noqa: E501
+    def create_session(self, body, **kwargs):  # noqa: E501
         """Creates new hub session.  # noqa: E501
 
         Allowed fileds:  * name        - human readable session name * expires     - session expiration timestamp * allocation  - resource allocation mode.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_session(hub_session, async_req=True)
+        >>> thread = api.create_session(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param HubSession hub_session: (required)
+        :param HubSession body: (required)
         :return: int
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_session_with_http_info(hub_session, **kwargs)  # noqa: E501
+            return self.create_session_with_http_info(body, **kwargs)  # noqa: E501
         else:
-            (data) = self.create_session_with_http_info(hub_session, **kwargs)  # noqa: E501
+            (data) = self.create_session_with_http_info(body, **kwargs)  # noqa: E501
             return data
 
-    def create_session_with_http_info(self, hub_session, **kwargs):  # noqa: E501
+    def create_session_with_http_info(self, body, **kwargs):  # noqa: E501
         """Creates new hub session.  # noqa: E501
 
         Allowed fileds:  * name        - human readable session name * expires     - session expiration timestamp * allocation  - resource allocation mode.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_session_with_http_info(hub_session, async_req=True)
+        >>> thread = api.create_session_with_http_info(body, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
-        :param HubSession hub_session: (required)
+        :param HubSession body: (required)
         :return: int
                  If the method is called asynchronously,
                  returns the request thread.
@@ -388,7 +388,7 @@ class SessionApi(object):
 
         local_var_params = locals()
 
-        all_params = ['hub_session']  # noqa: E501
+        all_params = ['body']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -402,10 +402,10 @@ class SessionApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'hub_session' is set
-        if ('hub_session' not in local_var_params or
-                local_var_params['hub_session'] is None):
-            raise ValueError("Missing the required parameter `hub_session` when calling `create_session`")  # noqa: E501
+        # verify the required parameter 'body' is set
+        if ('body' not in local_var_params or
+                local_var_params['body'] is None):
+            raise ValueError("Missing the required parameter `body` when calling `create_session`")  # noqa: E501
 
         collection_formats = {}
 
@@ -419,8 +419,8 @@ class SessionApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'hub_session' in local_var_params:
-            body_params = local_var_params['hub_session']
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -856,7 +856,7 @@ class SessionApi(object):
 
         :param async_req bool
         :param int session_id: HUB session id (required)
-        :return: dict(str, object)
+        :return: ConfigStash
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -877,7 +877,7 @@ class SessionApi(object):
 
         :param async_req bool
         :param int session_id: HUB session id (required)
-        :return: dict(str, object)
+        :return: ConfigStash
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -932,7 +932,7 @@ class SessionApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='dict(str, object)',  # noqa: E501
+            response_type='ConfigStash',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -1316,39 +1316,39 @@ class SessionApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def set_config(self, session_id, request_body, **kwargs):  # noqa: E501
+    def set_config(self, session_id, config, **kwargs):  # noqa: E501
         """Sets configuration stash  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_config(session_id, request_body, async_req=True)
+        >>> thread = api.set_config(session_id, config, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param int session_id: HUB session id (required)
-        :param dict(str, object) request_body: New config stash value (required)
+        :param dict(str, object) config: New config stash value (required)
         :return: int
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.set_config_with_http_info(session_id, request_body, **kwargs)  # noqa: E501
+            return self.set_config_with_http_info(session_id, config, **kwargs)  # noqa: E501
         else:
-            (data) = self.set_config_with_http_info(session_id, request_body, **kwargs)  # noqa: E501
+            (data) = self.set_config_with_http_info(session_id, config, **kwargs)  # noqa: E501
             return data
 
-    def set_config_with_http_info(self, session_id, request_body, **kwargs):  # noqa: E501
+    def set_config_with_http_info(self, session_id, config, **kwargs):  # noqa: E501
         """Sets configuration stash  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.set_config_with_http_info(session_id, request_body, async_req=True)
+        >>> thread = api.set_config_with_http_info(session_id, config, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param int session_id: HUB session id (required)
-        :param dict(str, object) request_body: New config stash value (required)
+        :param dict(str, object) config: New config stash value (required)
         :return: int
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1356,7 +1356,7 @@ class SessionApi(object):
 
         local_var_params = locals()
 
-        all_params = ['session_id', 'request_body']  # noqa: E501
+        all_params = ['session_id', 'config']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1374,10 +1374,10 @@ class SessionApi(object):
         if ('session_id' not in local_var_params or
                 local_var_params['session_id'] is None):
             raise ValueError("Missing the required parameter `session_id` when calling `set_config`")  # noqa: E501
-        # verify the required parameter 'request_body' is set
-        if ('request_body' not in local_var_params or
-                local_var_params['request_body'] is None):
-            raise ValueError("Missing the required parameter `request_body` when calling `set_config`")  # noqa: E501
+        # verify the required parameter 'config' is set
+        if ('config' not in local_var_params or
+                local_var_params['config'] is None):
+            raise ValueError("Missing the required parameter `config` when calling `set_config`")  # noqa: E501
 
         collection_formats = {}
 
@@ -1393,8 +1393,8 @@ class SessionApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'request_body' in local_var_params:
-            body_params = local_var_params['request_body']
+        if 'config' in local_var_params:
+            body_params = local_var_params['config']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['*/*'])  # noqa: E501
@@ -1418,43 +1418,43 @@ class SessionApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_deployment(self, session_id, node_id, deployment_id, command, **kwargs):  # noqa: E501
+    def update_deployment(self, session_id, node_id, deployment_id, commands, **kwargs):  # noqa: E501
         """Sends multiple commands for peer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_deployment(session_id, node_id, deployment_id, command, async_req=True)
+        >>> thread = api.update_deployment(session_id, node_id, deployment_id, commands, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param int session_id: HUB session id (required)
         :param str node_id: GU Network node identifier (required)
         :param str deployment_id: (required)
-        :param list[Command] command: (required)
+        :param list[Command] commands: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.update_deployment_with_http_info(session_id, node_id, deployment_id, command, **kwargs)  # noqa: E501
+            return self.update_deployment_with_http_info(session_id, node_id, deployment_id, commands, **kwargs)  # noqa: E501
         else:
-            (data) = self.update_deployment_with_http_info(session_id, node_id, deployment_id, command, **kwargs)  # noqa: E501
+            (data) = self.update_deployment_with_http_info(session_id, node_id, deployment_id, commands, **kwargs)  # noqa: E501
             return data
 
-    def update_deployment_with_http_info(self, session_id, node_id, deployment_id, command, **kwargs):  # noqa: E501
+    def update_deployment_with_http_info(self, session_id, node_id, deployment_id, commands, **kwargs):  # noqa: E501
         """Sends multiple commands for peer  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_deployment_with_http_info(session_id, node_id, deployment_id, command, async_req=True)
+        >>> thread = api.update_deployment_with_http_info(session_id, node_id, deployment_id, commands, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param int session_id: HUB session id (required)
         :param str node_id: GU Network node identifier (required)
         :param str deployment_id: (required)
-        :param list[Command] command: (required)
+        :param list[Command] commands: (required)
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1462,7 +1462,7 @@ class SessionApi(object):
 
         local_var_params = locals()
 
-        all_params = ['session_id', 'node_id', 'deployment_id', 'command']  # noqa: E501
+        all_params = ['session_id', 'node_id', 'deployment_id', 'commands']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1488,10 +1488,10 @@ class SessionApi(object):
         if ('deployment_id' not in local_var_params or
                 local_var_params['deployment_id'] is None):
             raise ValueError("Missing the required parameter `deployment_id` when calling `update_deployment`")  # noqa: E501
-        # verify the required parameter 'command' is set
-        if ('command' not in local_var_params or
-                local_var_params['command'] is None):
-            raise ValueError("Missing the required parameter `command` when calling `update_deployment`")  # noqa: E501
+        # verify the required parameter 'commands' is set
+        if ('commands' not in local_var_params or
+                local_var_params['commands'] is None):
+            raise ValueError("Missing the required parameter `commands` when calling `update_deployment`")  # noqa: E501
 
         if 'node_id' in local_var_params and not re.search(r'0x[0-9a-f]{40}', local_var_params['node_id']):  # noqa: E501
             raise ValueError("Invalid value for parameter `node_id` when calling `update_deployment`, must conform to the pattern `/0x[0-9a-f]{40}/`")  # noqa: E501
@@ -1513,8 +1513,8 @@ class SessionApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'command' in local_var_params:
-            body_params = local_var_params['command']
+        if 'commands' in local_var_params:
+            body_params = local_var_params['commands']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -1548,7 +1548,7 @@ class SessionApi(object):
 
         :param async_req bool
         :param int session_id: HUB session id (required)
-        :param HubSessionCommand hub_session_command:
+        :param HubSessionCommand changes:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1570,7 +1570,7 @@ class SessionApi(object):
 
         :param async_req bool
         :param int session_id: HUB session id (required)
-        :param HubSessionCommand hub_session_command:
+        :param HubSessionCommand changes:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
@@ -1578,7 +1578,7 @@ class SessionApi(object):
 
         local_var_params = locals()
 
-        all_params = ['session_id', 'hub_session_command']  # noqa: E501
+        all_params = ['session_id', 'changes']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1611,8 +1611,8 @@ class SessionApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'hub_session_command' in local_var_params:
-            body_params = local_var_params['hub_session_command']
+        if 'changes' in local_var_params:
+            body_params = local_var_params['changes']
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501

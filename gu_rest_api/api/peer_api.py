@@ -32,39 +32,39 @@ class PeerApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_deployment(self, node_id, deployment_spec, **kwargs):  # noqa: E501
+    def create_deployment(self, node_id, spec, **kwargs):  # noqa: E501
         """create_deployment  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_deployment(node_id, deployment_spec, async_req=True)
+        >>> thread = api.create_deployment(node_id, spec, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str node_id: GU Network node identifier (required)
-        :param DeploymentSpec deployment_spec: (required)
+        :param DeploymentSpec spec: (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.create_deployment_with_http_info(node_id, deployment_spec, **kwargs)  # noqa: E501
+            return self.create_deployment_with_http_info(node_id, spec, **kwargs)  # noqa: E501
         else:
-            (data) = self.create_deployment_with_http_info(node_id, deployment_spec, **kwargs)  # noqa: E501
+            (data) = self.create_deployment_with_http_info(node_id, spec, **kwargs)  # noqa: E501
             return data
 
-    def create_deployment_with_http_info(self, node_id, deployment_spec, **kwargs):  # noqa: E501
+    def create_deployment_with_http_info(self, node_id, spec, **kwargs):  # noqa: E501
         """create_deployment  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_deployment_with_http_info(node_id, deployment_spec, async_req=True)
+        >>> thread = api.create_deployment_with_http_info(node_id, spec, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool
         :param str node_id: GU Network node identifier (required)
-        :param DeploymentSpec deployment_spec: (required)
+        :param DeploymentSpec spec: (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -72,7 +72,7 @@ class PeerApi(object):
 
         local_var_params = locals()
 
-        all_params = ['node_id', 'deployment_spec']  # noqa: E501
+        all_params = ['node_id', 'spec']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -90,10 +90,10 @@ class PeerApi(object):
         if ('node_id' not in local_var_params or
                 local_var_params['node_id'] is None):
             raise ValueError("Missing the required parameter `node_id` when calling `create_deployment`")  # noqa: E501
-        # verify the required parameter 'deployment_spec' is set
-        if ('deployment_spec' not in local_var_params or
-                local_var_params['deployment_spec'] is None):
-            raise ValueError("Missing the required parameter `deployment_spec` when calling `create_deployment`")  # noqa: E501
+        # verify the required parameter 'spec' is set
+        if ('spec' not in local_var_params or
+                local_var_params['spec'] is None):
+            raise ValueError("Missing the required parameter `spec` when calling `create_deployment`")  # noqa: E501
 
         if 'node_id' in local_var_params and not re.search(r'0x[0-9a-f]{40}', local_var_params['node_id']):  # noqa: E501
             raise ValueError("Invalid value for parameter `node_id` when calling `create_deployment`, must conform to the pattern `/0x[0-9a-f]{40}/`")  # noqa: E501
@@ -111,8 +111,8 @@ class PeerApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'deployment_spec' in local_var_params:
-            body_params = local_var_params['deployment_spec']
+        if 'spec' in local_var_params:
+            body_params = local_var_params['spec']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['*/*'])  # noqa: E501
@@ -533,7 +533,7 @@ class PeerApi(object):
         :param async_req bool
         :param str node_id: GU Network node identifier (required)
         :param str deployment_id: (required)
-        :param list[Command] command:
+        :param list[Command] commands:
         :return: list[str]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -556,7 +556,7 @@ class PeerApi(object):
         :param async_req bool
         :param str node_id: GU Network node identifier (required)
         :param str deployment_id: (required)
-        :param list[Command] command:
+        :param list[Command] commands:
         :return: list[str]
                  If the method is called asynchronously,
                  returns the request thread.
@@ -564,7 +564,7 @@ class PeerApi(object):
 
         local_var_params = locals()
 
-        all_params = ['node_id', 'deployment_id', 'command']  # noqa: E501
+        all_params = ['node_id', 'deployment_id', 'commands']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -605,8 +605,8 @@ class PeerApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'command' in local_var_params:
-            body_params = local_var_params['command']
+        if 'commands' in local_var_params:
+            body_params = local_var_params['commands']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['*/*'])  # noqa: E501

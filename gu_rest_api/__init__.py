@@ -40,7 +40,6 @@ from gu_rest_api.models.hub_session_command import HubSessionCommand
 from gu_rest_api.models.hub_session_touch_command import HubSessionTouchCommand
 from gu_rest_api.models.peer_details import PeerDetails
 from gu_rest_api.models.peer_info import PeerInfo
-from gu_rest_api.models.process_collection import ProcessCollection
 from gu_rest_api.models.process_info import ProcessInfo
 from gu_rest_api.models.start_command import StartCommand
 from gu_rest_api.models.stop_command import StopCommand
