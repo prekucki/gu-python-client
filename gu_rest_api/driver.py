@@ -19,6 +19,11 @@ class Driver(object):
     def session_from_id(self, session_id):
         return Session(self.client, session_id)
 
+    @property
+    def peers(self):
+        peer_api = gu_rest_api.PeerApi(self.client)
+        return peer_api.list_peers()
+
 class Session(object):
 
     def __init__(self, client, session_id):
@@ -56,6 +61,11 @@ class Session(object):
         blob_id = self.rest_api.create_blob(self.session_id)
         return Blob(self.client, self.session_id, blob_id)
 
+    def __enter__(self):
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.rest_api.delete_session(self.session_id)
 
 
 class Blob(object):
@@ -140,6 +150,17 @@ class Commands(object):
     def __init__(self, deployment):
         self._deployment = deployment
         self._cmds = []
+
+    def do_open(self):
+        cmd = gu_rest_api.Command(_open= None)
+        self._cmds.append(cmd)
+        return self
+
+    def do_close(self):
+        cmd = gu_rest_api.Command(_close= None)
+        self._cmds.append(cmd)
+        return self
+
 
     def do_exec(self, executable, *args):
         cmd = gu_rest_api.Command(_exec= gu_rest_api.ExecCommand(executable= executable, args= args))

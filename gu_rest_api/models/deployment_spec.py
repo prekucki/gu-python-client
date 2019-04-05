@@ -34,23 +34,26 @@ class DeploymentSpec(object):
         'env_type': 'EnvType',
         'image': 'DeploymentSpecImage',
         'name': 'str',
-        'tags': 'list[str]'
+        'tags': 'list[str]',
+        'options': 'object'
     }
 
     attribute_map = {
         'env_type': 'envType',
         'image': 'image',
         'name': 'name',
-        'tags': 'tags'
+        'tags': 'tags',
+        'options': 'options'
     }
 
-    def __init__(self, env_type=None, image=None, name=None, tags=None):  # noqa: E501
+    def __init__(self, env_type=None, image=None, name=None, tags=None, options=None):  # noqa: E501
         """DeploymentSpec - a model defined in OpenAPI"""  # noqa: E501
 
         self._env_type = None
         self._image = None
         self._name = None
         self._tags = None
+        self._options = None
         self.discriminator = None
 
         if env_type is not None:
@@ -61,6 +64,8 @@ class DeploymentSpec(object):
             self.name = name
         if tags is not None:
             self.tags = tags
+        if options is not None:
+            self.options = options
 
     @property
     def env_type(self):
@@ -149,6 +154,27 @@ class DeploymentSpec(object):
         """
 
         self._tags = tags
+
+    @property
+    def options(self):
+        """Gets the options of this DeploymentSpec.  # noqa: E501
+
+
+        :return: The options of this DeploymentSpec.  # noqa: E501
+        :rtype: object
+        """
+        return self._options
+
+    @options.setter
+    def options(self, options):
+        """Sets the options of this DeploymentSpec.
+
+
+        :param options: The options of this DeploymentSpec.  # noqa: E501
+        :type: object
+        """
+
+        self._options = options
 
     def to_dict(self):
         """Returns the model properties as a dict"""

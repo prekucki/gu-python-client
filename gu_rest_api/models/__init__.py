@@ -20,6 +20,7 @@ from gu_rest_api.models.deployment_info import DeploymentInfo
 from gu_rest_api.models.deployment_spec import DeploymentSpec
 from gu_rest_api.models.deployment_spec_image import DeploymentSpecImage
 from gu_rest_api.models.deployment_status import DeploymentStatus
+from gu_rest_api.models.docker_create_options import DockerCreateOptions
 from gu_rest_api.models.download_file_command import DownloadFileCommand
 from gu_rest_api.models.env_type import EnvType
 from gu_rest_api.models.exec_command import ExecCommand
@@ -33,3 +34,5 @@ from gu_rest_api.models.process_info import ProcessInfo
 from gu_rest_api.models.start_command import StartCommand
 from gu_rest_api.models.stop_command import StopCommand
 from gu_rest_api.models.upload_file_command import UploadFileCommand
+from gu_rest_api.models.volume_def import VolumeDef
+from gu_rest_api.models.volume_def_bind_rw import VolumeDefBindRw
