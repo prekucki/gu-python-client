@@ -14,6 +14,7 @@ from __future__ import absolute_import
 
 import io
 import json
+from gu_rest_api.none import dumps
 import logging
 import re
 import ssl
@@ -157,7 +158,7 @@ class RESTClientObject(object):
                 if re.search('json', headers['Content-Type'], re.IGNORECASE):
                     request_body = None
                     if body is not None:
-                        request_body = json.dumps(body)
+                        request_body = dumps(body)
                     r = self.pool_manager.request(
                         method, url,
                         body=request_body,

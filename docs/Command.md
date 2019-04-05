@@ -4,6 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_exec** | [**ExecCommand**](ExecCommand.md) |  | [optional] 
+**open** | [**object**](.md) |  | [optional] 
+**close** | [**object**](.md) |  | [optional] 
 **start** | [**StartCommand**](StartCommand.md) |  | [optional] 
 **stop** | [**StopCommand**](StopCommand.md) |  | [optional] 
 **add_tags** | **list[str]** |  | [optional] 

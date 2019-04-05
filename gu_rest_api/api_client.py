@@ -17,6 +17,7 @@ from multiprocessing.pool import ThreadPool
 import os
 import re
 import tempfile
+import gu_rest_api.none
 
 # python 2 and python 3 compatibility library
 import six
@@ -199,6 +200,8 @@ class ApiClient(object):
             return None
         elif isinstance(obj, self.PRIMITIVE_TYPES):
             return obj
+        elif obj == gu_rest_api.none.NONE_IT:
+            return gu_rest_api.none.NONE_IT
         elif isinstance(obj, list):
             return [self.sanitize_for_serialization(sub_obj)
                     for sub_obj in obj]

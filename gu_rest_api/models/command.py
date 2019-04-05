@@ -32,6 +32,8 @@ class Command(object):
     """
     openapi_types = {
         '_exec': 'ExecCommand',
+        'open': 'object',
+        'close': 'object',
         'start': 'StartCommand',
         'stop': 'StopCommand',
         'add_tags': 'list[str]',
@@ -42,6 +44,8 @@ class Command(object):
 
     attribute_map = {
         '_exec': 'exec',
+        'open': 'open',
+        'close': 'close',
         'start': 'start',
         'stop': 'stop',
         'add_tags': 'addTags',
@@ -50,10 +54,12 @@ class Command(object):
         'upload_file': 'uploadFile'
     }
 
-    def __init__(self, _exec=None, start=None, stop=None, add_tags=None, del_tags=None, download_file=None, upload_file=None):  # noqa: E501
+    def __init__(self, _exec=None, open=None, close=None, start=None, stop=None, add_tags=None, del_tags=None, download_file=None, upload_file=None):  # noqa: E501
         """Command - a model defined in OpenAPI"""  # noqa: E501
 
         self.__exec = None
+        self._open = None
+        self._close = None
         self._start = None
         self._stop = None
         self._add_tags = None
@@ -64,6 +70,10 @@ class Command(object):
 
         if _exec is not None:
             self._exec = _exec
+        if open is not None:
+            self.open = open
+        if close is not None:
+            self.close = close
         if start is not None:
             self.start = start
         if stop is not None:
@@ -97,6 +107,48 @@ class Command(object):
         """
 
         self.__exec = _exec
+
+    @property
+    def open(self):
+        """Gets the open of this Command.  # noqa: E501
+
+
+        :return: The open of this Command.  # noqa: E501
+        :rtype: object
+        """
+        return self._open
+
+    @open.setter
+    def open(self, open):
+        """Sets the open of this Command.
+
+
+        :param open: The open of this Command.  # noqa: E501
+        :type: object
+        """
+
+        self._open = open
+
+    @property
+    def close(self):
+        """Gets the close of this Command.  # noqa: E501
+
+
+        :return: The close of this Command.  # noqa: E501
+        :rtype: object
+        """
+        return self._close
+
+    @close.setter
+    def close(self, close):
+        """Sets the close of this Command.
+
+
+        :param close: The close of this Command.  # noqa: E501
+        :type: object
+        """
+
+        self._close = close
 
     @property
     def start(self):

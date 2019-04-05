@@ -1,5 +1,6 @@
 import gu_rest_api
 from gu_rest_api.rest import ApiException
+from gu_rest_api.none import NONE_IT
 
 
 class Driver(object):
@@ -152,12 +153,12 @@ class Commands(object):
         self._cmds = []
 
     def do_open(self):
-        cmd = gu_rest_api.Command(_open= None)
+        cmd = gu_rest_api.Command(open= NONE_IT)
         self._cmds.append(cmd)
         return self
 
     def do_close(self):
-        cmd = gu_rest_api.Command(_close= None)
+        cmd = gu_rest_api.Command(close= NONE_IT)
         self._cmds.append(cmd)
         return self
 
@@ -176,6 +177,9 @@ class Commands(object):
         cmd = gu_rest_api.Command(upload_file=gu_rest_api.UploadFileCommand(uri=uri, file_path=path))
         self._cmds.append(cmd)
         return self
+
+    def _print(self, client):
+        print('cmds=', client.sanitize_for_serialization(self._cmds))
 
     def send(self):
         cmds = self._cmds

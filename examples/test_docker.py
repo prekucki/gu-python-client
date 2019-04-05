@@ -30,7 +30,7 @@ def test_docker():
         
         print("deployment=", gu_test.info)
 
-        print("r=", gu_test.begin().do_open().do_exec('find', '/').do_close().send())
+        print("r=", gu_test.begin().do_open().do_exec('/bin/sh', '-c', 'find / | head').send())
 
 
 
