@@ -32,25 +32,30 @@ class DockerCreateOptions(object):
     """
     openapi_types = {
         'volumes': 'list[VolumeDef]',
-        'cmd': 'list[str]'
+        'cmd': 'list[str]',
+        'net': 'DockerNetDef'
     }
 
     attribute_map = {
         'volumes': 'volumes',
-        'cmd': 'cmd'
+        'cmd': 'cmd',
+        'net': 'net'
     }
 
-    def __init__(self, volumes=None, cmd=None):  # noqa: E501
+    def __init__(self, volumes=None, cmd=None, net=None):  # noqa: E501
         """DockerCreateOptions - a model defined in OpenAPI"""  # noqa: E501
 
         self._volumes = None
         self._cmd = None
+        self._net = None
         self.discriminator = None
 
         if volumes is not None:
             self.volumes = volumes
         if cmd is not None:
             self.cmd = cmd
+        if net is not None:
+            self.net = net
 
     @property
     def volumes(self):
@@ -93,6 +98,27 @@ class DockerCreateOptions(object):
         """
 
         self._cmd = cmd
+
+    @property
+    def net(self):
+        """Gets the net of this DockerCreateOptions.  # noqa: E501
+
+
+        :return: The net of this DockerCreateOptions.  # noqa: E501
+        :rtype: DockerNetDef
+        """
+        return self._net
+
+    @net.setter
+    def net(self, net):
+        """Sets the net of this DockerCreateOptions.
+
+
+        :param net: The net of this DockerCreateOptions.  # noqa: E501
+        :type: DockerNetDef
+        """
+
+        self._net = net
 
     def to_dict(self):
         """Returns the model properties as a dict"""
