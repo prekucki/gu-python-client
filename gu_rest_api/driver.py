@@ -111,7 +111,6 @@ class SessionPeer(object):
         return Deployment(self.client, self.session_id, self.node_id,
                           self.peer_api.create_deployment(self.node_id, spec))
 
-
 class Deployment(object):
     __slots__ = ('client', 'peer_api', 'session_id', 'node_id', 'deploymnet_id', '_open')
 
@@ -137,6 +136,7 @@ class Deployment(object):
 
     def __enter__(self):
         self._open = True
+        return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if self._open:
