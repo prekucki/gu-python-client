@@ -235,7 +235,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
 node_id = 'node_id_example' # str | GU Network node identifier
-deployment_spec = gu_rest_api.DeploymentSpec() # DeploymentSpec | 
+deployment_spec = gu_rest_api.DeploymentInfo() # DeploymentInfo | 
 
 try:
     # Creates new deployment
@@ -267,7 +267,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 api_instance = gu_rest_api.SessionApi(gu_rest_api.ApiClient(configuration))
 session_id = 56 # int | HUB session id
 node_id = 'node_id_example' # str | GU Network node identifier
-deployment_spec = gu_rest_api.DeploymentSpec() # DeploymentSpec | 
+deployment_spec = gu_rest_api.DeploymentInfo() # DeploymentInfo | 
 
 try:
     # Creates new deployment
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **session_id** | **int**| HUB session id | 
  **node_id** | **str**| GU Network node identifier | 
- **deployment_spec** | [**DeploymentSpec**](DeploymentSpec.md)|  | 
+ **deployment_spec** | [**DeploymentInfo**](DeploymentInfo.md)|  | 
 
 ### Return type
 

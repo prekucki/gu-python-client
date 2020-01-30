@@ -247,7 +247,7 @@ class SessionApi(object):
         :param async_req bool
         :param int session_id: HUB session id (required)
         :param str node_id: GU Network node identifier (required)
-        :param DeploymentSpec deployment_spec: (required)
+        :param DeploymentInfo deployment_spec: (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
@@ -270,7 +270,7 @@ class SessionApi(object):
         :param async_req bool
         :param int session_id: HUB session id (required)
         :param str node_id: GU Network node identifier (required)
-        :param DeploymentSpec deployment_spec: (required)
+        :param DeploymentInfo deployment_spec: (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.

@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_exec** | [**ExecCommand**](ExecCommand.md) |  | [optional] 
 **open** | [**object**](.md) |  | [optional] 
+**wait** | [**object**](.md) |  | [optional] 
 **close** | [**object**](.md) |  | [optional] 
 **start** | [**StartCommand**](StartCommand.md) |  | [optional] 
 **stop** | [**StopCommand**](StopCommand.md) |  | [optional] 

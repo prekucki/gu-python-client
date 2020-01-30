@@ -157,6 +157,11 @@ class Commands(object):
         self._cmds.append(cmd)
         return self
 
+    def do_wait(self):
+        cmd = gu_rest_api.Command(wait= NONE_IT)
+        self._cmds.append(cmd)
+        return self
+
     def do_close(self):
         cmd = gu_rest_api.Command(close= NONE_IT)
         self._cmds.append(cmd)

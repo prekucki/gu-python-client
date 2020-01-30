@@ -33,6 +33,7 @@ class Command(object):
     openapi_types = {
         '_exec': 'ExecCommand',
         'open': 'object',
+        'wait': 'object',
         'close': 'object',
         'start': 'StartCommand',
         'stop': 'StopCommand',
@@ -45,6 +46,7 @@ class Command(object):
     attribute_map = {
         '_exec': 'exec',
         'open': 'open',
+        'wait': 'wait',
         'close': 'close',
         'start': 'start',
         'stop': 'stop',
@@ -54,11 +56,12 @@ class Command(object):
         'upload_file': 'uploadFile'
     }
 
-    def __init__(self, _exec=None, open=None, close=None, start=None, stop=None, add_tags=None, del_tags=None, download_file=None, upload_file=None):  # noqa: E501
+    def __init__(self, _exec=None, open=None, wait=None, close=None, start=None, stop=None, add_tags=None, del_tags=None, download_file=None, upload_file=None):  # noqa: E501
         """Command - a model defined in OpenAPI"""  # noqa: E501
 
         self.__exec = None
         self._open = None
+        self._wait = None
         self._close = None
         self._start = None
         self._stop = None
@@ -72,6 +75,8 @@ class Command(object):
             self._exec = _exec
         if open is not None:
             self.open = open
+        if wait is not None:
+            self.wait = wait
         if close is not None:
             self.close = close
         if start is not None:
@@ -128,6 +133,27 @@ class Command(object):
         """
 
         self._open = open
+
+    @property
+    def wait(self):
+        """Gets the wait of this Command.  # noqa: E501
+
+
+        :return: The wait of this Command.  # noqa: E501
+        :rtype: object
+        """
+        return self._wait
+
+    @wait.setter
+    def wait(self, wait):
+        """Sets the wait of this Command.
+
+
+        :param wait: The wait of this Command.  # noqa: E501
+        :type: object
+        """
+
+        self._wait = wait
 
     @property
     def close(self):
