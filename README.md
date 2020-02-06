@@ -23,7 +23,7 @@ pip install git+https://github.com/prekucki/gu-python-client.git
 
 Then import the package:
 ```python
-import gu_rest_api 
+import gu_rest_api
 ```
 
 ### Setuptools
@@ -38,6 +38,26 @@ python setup.py install --user
 Then import the package:
 ```python
 import gu_rest_api
+```
+### Anaconda/Miniconda
+
+Building and installing a conda package from source with [conda-build](https://docs.conda.io/projects/conda-build/en/latest/):
+
+* make sure conda-build is installed in the active conda environment
+* build the package:
+
+```
+conda build .
+```
+* make sure the build directory is indexed:
+
+```
+conda index $CONDA_PREFIX/conda-bld
+```
+
+* install the package from your local channel:
+```
+conda install -c file:///$CONDA_PREFIX/conda-bld gu-python-client
 ```
 
 ## Getting Started
@@ -65,7 +85,7 @@ configuration.api_key['X-GU-APPNAME'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = gu_rest_api.PeerApi(gu_rest_api.ApiClient(configuration))
 node_id = 'node_id_example' # str | GU Network node identifier
-spec = gu_rest_api.DeploymentSpec() # DeploymentSpec | 
+spec = gu_rest_api.DeploymentSpec() # DeploymentSpec |
 
 try:
     api_response = api_instance.create_deployment(node_id, spec)
@@ -81,23 +101,23 @@ All URIs are relative to *http://127.0.0.1:61622*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*PeerApi* | [**create_deployment**](docs/PeerApi.md#create_deployment) | **POST** /peers/{nodeId}/deployments | 
+*PeerApi* | [**create_deployment**](docs/PeerApi.md#create_deployment) | **POST** /peers/{nodeId}/deployments |
 *PeerApi* | [**drop_deployment**](docs/PeerApi.md#drop_deployment) | **DELETE** /peers/{nodeId}/deployments/{deploymentId} | Removes deployment
-*PeerApi* | [**get_hub_info**](docs/PeerApi.md#get_hub_info) | **GET** /info | 
+*PeerApi* | [**get_hub_info**](docs/PeerApi.md#get_hub_info) | **GET** /info |
 *PeerApi* | [**get_peer_details**](docs/PeerApi.md#get_peer_details) | **GET** /peers/{nodeId} | Returns detailed peer info
-*PeerApi* | [**list_deployments**](docs/PeerApi.md#list_deployments) | **GET** /peers/{nodeId}/deployments | 
+*PeerApi* | [**list_deployments**](docs/PeerApi.md#list_deployments) | **GET** /peers/{nodeId}/deployments |
 *PeerApi* | [**list_peers**](docs/PeerApi.md#list_peers) | **GET** /peers | Returns a list hub peers.
-*PeerApi* | [**update_deployment**](docs/PeerApi.md#update_deployment) | **PATCH** /peers/{nodeId}/deployments/{deploymentId} | 
+*PeerApi* | [**update_deployment**](docs/PeerApi.md#update_deployment) | **PATCH** /peers/{nodeId}/deployments/{deploymentId} |
 *SessionApi* | [**add_session_peers**](docs/SessionApi.md#add_session_peers) | **POST** /sessions/{sessionId}/peers | Manually adds peers to hub session
 *SessionApi* | [**create_blob**](docs/SessionApi.md#create_blob) | **POST** /sessions/{sessionId}/blobs | Creates new lob
 *SessionApi* | [**create_deployment**](docs/SessionApi.md#create_deployment) | **POST** /sessions/{sessionId}/peers/{nodeId}/deployments | Creates new deployment
 *SessionApi* | [**create_session**](docs/SessionApi.md#create_session) | **POST** /sessions | Creates new hub session.
-*SessionApi* | [**delete_blob**](docs/SessionApi.md#delete_blob) | **DELETE** /sessions/{sessionId}/blobs/{blobId} | 
-*SessionApi* | [**delete_deployment**](docs/SessionApi.md#delete_deployment) | **DELETE** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} | 
-*SessionApi* | [**delete_session**](docs/SessionApi.md#delete_session) | **DELETE** /sessions/{sessionId} | 
+*SessionApi* | [**delete_blob**](docs/SessionApi.md#delete_blob) | **DELETE** /sessions/{sessionId}/blobs/{blobId} |
+*SessionApi* | [**delete_deployment**](docs/SessionApi.md#delete_deployment) | **DELETE** /sessions/{sessionId}/peers/{nodeId}/deployments/{deploymentId} |
+*SessionApi* | [**delete_session**](docs/SessionApi.md#delete_session) | **DELETE** /sessions/{sessionId} |
 *SessionApi* | [**download_blob**](docs/SessionApi.md#download_blob) | **GET** /sessions/{sessionId}/blobs/{blobId} | Downloads binary content from the hub
 *SessionApi* | [**get_config**](docs/SessionApi.md#get_config) | **GET** /sessions/{sessionId}/config | Gets configuration from stash
-*SessionApi* | [**get_hub_info**](docs/SessionApi.md#get_hub_info) | **GET** /info | 
+*SessionApi* | [**get_hub_info**](docs/SessionApi.md#get_hub_info) | **GET** /info |
 *SessionApi* | [**get_session**](docs/SessionApi.md#get_session) | **GET** /sessions/{sessionId} | Gets hub session info
 *SessionApi* | [**list_blobs**](docs/SessionApi.md#list_blobs) | **GET** /sessions/{sessionId}/blobs | Lists currently allocated lobs
 *SessionApi* | [**list_session_peers**](docs/SessionApi.md#list_session_peers) | **GET** /sessions/{sessionId}/peers | List session peers
@@ -155,7 +175,3 @@ Class | Method | HTTP request | Description
 
 
 ## Author
-
-
-
-

@@ -1,0 +1,22 @@
+package:
+  name: gu-python-client
+  version: 1.0.0
+
+source:
+  path: .
+
+build:
+  script: python setup.py install
+
+requirements:
+  host:
+    - python =3.6
+    - setuptools
+    - python-dateutil >=2.5.3
+    - urllib3 >=1.15.1
+  run:
+    - python >=3.6
+    - certifi >=14.05.12
+    - six >=1.10
+    - python-dateutil >=2.5.3
+    - urllib3 >=1.15.1
